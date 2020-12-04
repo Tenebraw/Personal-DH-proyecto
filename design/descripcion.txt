@@ -1,0 +1,4 @@
+En esta carpeta se incluira todo lo relativo a:
+1) Logo.
+2) Colores.
+3) Tipografias.

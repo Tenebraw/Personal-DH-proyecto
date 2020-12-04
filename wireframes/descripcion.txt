@@ -1,0 +1,8 @@
+En esta carpeta incluire todo lo relativo al wireframe que incluya:
+1) Home.
+2) Detalle Del Producto.
+3) Carrito De Compras.
+4) Formulario De Registro.
+5) Formulario de Login.
+
+En cualquier formato.
