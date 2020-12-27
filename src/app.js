@@ -1,11 +1,14 @@
 //Ejecutando express.
 const express = require('express');
 const app = express();
-//
 const path = require('path');
 
 /*Configuracion*/
+//Importante. Respetar siempre el orden de las siguientes lineas!!
+app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, "../public")));
+//app.use(express.static('public'));
+
 
 //Rutas
 const indexRoutes = require('./routes/index');
