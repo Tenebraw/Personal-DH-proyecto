@@ -7,6 +7,10 @@
                         background-color: black;
                     }
                     
+                    header .title-property a {
+                        text-decoration: none;
+                    }
+                    
                     .fullscreen-menu,
                     .seemore,
                     .search-input,
@@ -43,20 +47,64 @@
                     }
                     /*main*/
                     
+                    .myclothesSlides:hover,
+                    .myAccesorySlides:hover,
+                    .myBijouxSlides:hover,
+                    .myHomeSlides:hover {
+                        background: black;
+                    }
+                    
+                    .myclothesSlides:hover .clothesbutton,
+                    .myAccesorySlides:hover .accesorybutton,
+                    .myBijouxSlides:hover .bijouxbutton,
+                    .myHomeSlides:hover .homebutton {
+                        opacity: 1;
+                        width: 60%;
+                        color: white;
+                        background: black;
+                        border: 2px solid red;
+                    }
+                    /*Lista productos*/
+                    
+                    .indumentaria .myclothesSlides,
+                    .accesorios .myAccesorySlides,
+                    .bijouterie .myBijouxSlides,
+                    .home .myHomeSlides {
+                        display: block;
+                        width: 70%;
+                        text-align: center;
+                        margin: 0 auto;
+                        margin-bottom: 0px;
+                        border-radius: 10px;
+                        margin-bottom: 10px;
+                    }
+                    
+                    .indumentaria .clothes-container a,
+                    .accesorios .accesory-container a,
+                    .bijouterie .bijoux-container a,
+                    .home .home-container a {
+                        display: none;
+                    }
+                    /**/
+                    
                     .interludio {
                         width: 100%;
                         text-align: center;
                         font-size: 1.5rem;
-                        background: #FFF;
                         display: flex;
                         flex-direction: row;
                         justify-content: space-around;
                         margin-top: 50px;
                         margin-bottom: 50px;
+                        background: black;
+                        color: whitesmoke;
+                        border: 1px solid;
+                        border-left: none;
+                        border-right: none;
                     }
                     
                     .legend {
-                        width: 38%;
+                        width: 48%;
                     }
                     
                     .legend h2 {
@@ -65,10 +113,23 @@
                     
                     .legend p {
                         font-size: 1.25rem;
+                        letter-spacing: 2px;
                     }
                     
-                    .legend ul {
-                        font-size: 1.125rem;
+                    .banner-publicity {
+                        display: flex;
+                        flex-direction: column;
+                        letter-spacing: 2px;
+                        margin-top: 60px;
+                    }
+                    
+                    .banner-publicity span {
+                        font-size: 1rem;
+                        margin-bottom: 15px;
+                    }
+                    
+                    .banner-publicity .iconbanner {
+                        margin-left: 5px;
                     }
                     
                     .legend ul i {
@@ -76,12 +137,12 @@
                     }
                     
                     .imag-banner {
-                        width: 80%;
+                        margin: auto 0;
                     }
                     
                     .imag-banner img {
                         width: 100%;
-                        height: 100%;
+                        height: auto;
                     }
                     
                     .principal-nav {
@@ -115,7 +176,7 @@
                     
                     .btn-menu a:hover,
                     .bars-rightmenu a:hover {
-                        color: #adb5bd;
+                        color: #d90429;
                     }
                     
                     .desplegado {
@@ -222,32 +283,28 @@
                     }
                     
                     .product-accesory article,
-                    .product-clothes article {
-                        display: flex;
-                        width: 100%;
-                        text-align: center;
-                    }
-                    
+                    .product-clothes article,
+                    .product-bijoux article,
                     .product-home article {
                         display: flex;
-                        width: 100%;
+                        width: 70%;
+                        text-align: center;
+                        margin: 0 auto;
+                        border-radius: 10px;
                     }
                     
                     article {
                         position: relative;
                         text-align: center;
-                        background: linear-gradient(to right, rgba(209, 209, 209, 1) 0%, rgba(196, 196, 196, 1) 0%, rgba(196, 196, 196, 1) 0%, rgba(117, 117, 117, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(117, 117, 117, 1) 0%, rgba(117, 117, 117, 1) 0%, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 11%, rgba(46, 46, 46, 1) 15%, rgba(255, 255, 255, 1) 16%, rgba(255, 255, 255, 1) 17%, rgba(242, 242, 242, 1) 90%, rgba(196, 196, 196, 1) 90%, rgba(46, 46, 46, 1) 90%, rgba(46, 46, 46, 1) 90%, rgba(46, 46, 46, 1) 91%, rgba(79, 79, 79, 1) 99%, rgba(46, 46, 46, 1) 100%);
+                        background: linear-gradient(to right, rgba(226, 226, 226, 1) 1%, rgba(226, 226, 226, 1) 2%, rgba(209, 209, 209, 1) 18%, rgba(217, 217, 217, 1) 71%, rgba(218, 218, 218, 1) 77%, rgba(219, 219, 219, 1) 85%, rgba(254, 254, 254, 1) 97%);
                     }
                     
                     article img {
-                        max-width: 80%;
-                        max-height: 80%;
                         margin: 0 auto;
                         padding: 30px;
                         display: flex;
-                        /*-webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-                    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-                    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);*/
+                        height: 18.75rem;
+                        background: whitesmoke;
                     }
                     
                     .clothes-detail,
@@ -258,20 +315,31 @@
                         margin-top: 20px;
                         font-weight: bold;
                         font-size: inherit;
-                        background: white;
+                        text-shadow: 1px 1px 5px black;
+                    }
+                    
+                    .myclothesSlides:hover .clothes-detail,
+                    .myAccesorySlides:hover .accesory-detail,
+                    .myBijouxSlides:hover .bijoux-detail,
+                    .myHomeSlides:hover .home-detail {
+                        color: whitesmoke;
+                        margin-top: 20px;
+                        font-weight: bold;
                         font-size: inherit;
+                        text-shadow: 1px 1px 5px black;
                     }
                     
                     .clothes-price,
                     .accesory-price,
                     .bijoux-price,
                     .home-price {
-                        color: #6a040f;
+                        color: #a4161a;
                         font-weight: bolder;
                         font-size: x-large;
                         display: flex;
                         padding: 5px;
                         justify-content: center;
+                        text-shadow: 1px 1px 5px;
                     }
                     
                     article div {
@@ -291,6 +359,8 @@
                         border: solid 1px black;
                         font-size: 0.9rem;
                         font-family: 'Pathway Gothic One', sans-serif;
+                        transition: width 0.5s, height 0.5s;
+                        transition-timing-function: ease;
                     }
                     
                     .clothesbutton:hover,
@@ -332,7 +402,7 @@
                     }
                     
                     footer a:hover {
-                        color: #6a040f;
+                        color: #d90429;
                     }
                     
                     .footernav {
@@ -940,6 +1010,13 @@
                             width: calc(40% - 1rem)!important;
                             margin: 0 0.5rem 0.5rem 0.5rem;
                         }
+                        .indumentaria .clothes-container,
+                        .accesorios .accesory-container,
+                        .bijouterie .bijoux-container,
+                        .home .home-container {
+                            display: flex;
+                            flex-flow: row wrap;
+                        }
                     }
                     
                     @media (min-width:1024px) {
@@ -960,8 +1037,7 @@
                             font-size: 1.1rem;
                         }
                         .fullscreen-menu a:hover {
-                            /*color: #6a040f;*/
-                            background: #6a040f;
+                            color: #d90429;
                         }
                         header .btn-menu {
                             visibility: hidden;
@@ -984,13 +1060,6 @@
                         .myBijouxSlides,
                         .myHomeSlides {
                             transition: transform 250ms ease-out;
-                        }
-                        .myclothesSlides:hover,
-                        .myAccesorySlides:hover,
-                        .myBijouxSlides:hover,
-                        .myHomeSlides:hover {
-                            transform: scale(1.1);
-                            transform-origin: center
                         }
                         .barr {
                             text-align: center;
@@ -1015,7 +1084,12 @@
                             color: whitesmoke;
                             background: black;
                             border-radius: 0.4rem;
-                            font-size: unset;
+                            text-decoration: none;
+                            border: 1px solid;
+                            width: 6%;
+                            justify-content: center;
+                            font-size: 1.0rem;
+                            font-weight: bold;
                         }
                         .product-clothes .seemore:hover,
                         .product-accesory .seemore:hover,
@@ -1057,6 +1131,7 @@
                             flex-direction: row;
                             justify-content: space-around;
                             margin-top: 40px;
+                            letter-spacing: 2px;
                         }
                         .legend h2 {
                             text-transform: uppercase;
@@ -1140,5 +1215,11 @@
                             text-align: center;
                             display: flex;
                             flex-direction: column;
+                        }
+                        .indumentaria article,
+                        .accesorios article,
+                        .bijouterie article,
+                        .home article {
+                            margin-bottom: 20px;
                         }
                     }

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head');%>
+
+    <body>
+        <%- include('../partials/header');%>
+
+
+            <main>
+                <div class="login-container">
+                    <div class="login-titles">
+                        <h2>Login</h2>
+                        <p>Por favor, ingrese su email y password</p>
+                    </div>
+
+                    <form action="" method="POST">
+
+                        <input type="email" id="email" placeholder="Email">
+                        <input type="password" id="password" placeholder="Password">
+                        <button type="submit">Login</button>
+                        <p>No tiene una cuenta?<a href="/register">Registrese</a></p>
+
+                    </form>
+                </div>
+            </main>
+            <%- include('../partials/footer'); %>
+                <script src="../js/menu.js"></script>
+                <script src="../js/login.js"></script>
+    </body>
+
+</html>

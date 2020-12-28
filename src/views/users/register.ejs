@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head');%>
+
+    <body>
+        <%- include('../partials/header');%>
+            <main>
+                <div class="register-container">
+                    <div class="register-titles">
+                        <h2>Registro</h2>
+                        <p>Por favor, complete sus datos</p>
+                    </div>
+
+                    <form action="" method="POST">
+
+                        <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+                        <input type="text" name="apellido" id="apellido" placeholder="Apellido">
+                        <input type="email" name="email" id="email" placeholder="Email">
+                        <input type="password" name="password" id="password" placeholder="Password">
+                        <input type="password" name="password" id="passwordconfirmation" placeholder="Confirme su password">
+                        <button type="submit">Enviar</button>
+                        <button type="reset">Limpiar</button>
+
+                    </form>
+                </div>
+
+
+
+            </main>
+
+            <%- include('../partials/footer'); %>
+
+                <script src="../js/menu.js"></script>
+                <script src="../js/register.js"></script>
+    </body>
+
+</html>

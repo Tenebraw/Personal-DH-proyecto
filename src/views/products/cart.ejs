@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head');%>
+
+    <body>
+        <%- include('../partials/header');%>
+            <main>
+                <div class="title-cart">
+                    <h3>Carrito de compras</h3>
+                </div>
+                <div class="product-cart">
+                    <form>
+                        <div class="first-row">
+                            <span>Producto</span>
+                            <span class="empty-row"></span>
+                            <span>Cantidad</span>
+                            <span>Total</span>
+                        </div>
+                        <hr>
+                        <div class="second-row">
+                            <div class="first-column">
+                                <img src="../images/accesorio2.png" alt="">
+                            </div>
+                            <div class="second-column">
+                                <span>Helmet Hat Steam Punk Biker 
+                        </span>
+                                <span>$850</span>
+                            </div>
+                            <div class="third-column">
+                                <input type="number" id="quantity" name="quantity" min="1" max="5">
+                                <a href="#">Quitar</a>
+                            </div>
+                            <span class="price-cart">$30</span>
+                        </div>
+                        <hr>
+                        <div class="cart-comment">
+                            <span>Añadir un comentario</span>
+                            <textarea></textarea>
+                        </div>
+                        <div>
+                            <span><h3>Total $350</h3></span>
+                        </div>
+                        <button type="submit">Proceder al pago</button>
+
+                    </form>
+
+                </div>
+
+
+            </main>
+            <%- include('../partials/footer'); %>
+
+                <script src="../js/menu.js"></script>
+                <script src="../js/cart.js"></script>
+
+    </body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html class="home" lang="en">
+<%- include('../partials/head');%>
+
+    <body>
+        <%- include('../partials/header');%>
+            <main>
+                <section>
+                    <div class="product-home">
+                        <div class="barr">
+                            <div class="stable">
+                                <span>Hogar</span>
+                            </div>
+                            <div class="moving">
+                                <span>Tapices, atrapasueños, decorativos.</span>
+                            </div>
+                        </div>
+                        <div class="home-container">
+                            <article class="myHomeSlides fade">
+                                <img src="../images/hogar1.png">
+                                <span class="home-detail">Lovers Tapestry</span>
+                                <span class="home-price">$5.150</span>
+                                <i class="fas fa-sync-alt"></i>
+                                <button class="homebutton">Agregar al carrito</button>
+                            </article>
+                            <article class="myHomeSlides fade">
+                                <img src="../images/hogar2.png">
+                                <span class="home-detail">The Star Tapestry</span>
+                                <span class="home-price">$5.200</span>
+                                <i class="fas fa-sync-alt"></i>
+                                <button class="homebutton">Agregar al carrito</button>
+                            </article>
+                            <article class="myHomeSlides fade">
+                                <img src="../images/hogar3.png">
+                                <span class="home-detail">The Vault by Alchemy Dragonlore Clock</span>
+                                <span class="home-price">$8.150</span>
+                                <i class="fas fa-sync-alt"></i>
+                                <button class="homebutton">Agregar al carrito</button>
+                            </article>
+                            <article class="myHomeSlides fade">
+                                <img src="../images/hogar4.png">
+                                <span class="home-detail">All Seeing Eye Macrame Dream Catcher</span>
+                                <span class="home-price">$1.950</span>
+                                <i class="fas fa-sync-alt"></i>
+                                <button class="homebutton">Agregar al carrito</button>
+                            </article>
+                            <a class="prev" onclick="homeplusSlides(-1)">&#10094;</a>
+                            <a class="next" onclick="homeplusSlides(1)">&#10095;</a>
+                        </div>
+
+                    </div>
+                    <div class="interludio">
+
+                    </div>
+
+                </section>
+
+            </main>
+            <%- include('../partials/footer'); %>
+                <script src="../../js/menu.js"></script>
+    </body>
+
+</html>
