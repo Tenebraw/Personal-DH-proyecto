@@ -4,8 +4,7 @@ const controller = require('../controllers/indexControllers');
 
 //rutas 
 router.get('/', controller.index);
-/*router.get('/index', (req, res) => {
-    res.sendFile(path.join(__dirname, '/../views/index.html'));
-});*/
+router.get('/search', controller.search);
+router.get('/about', controller.about);
 
 module.exports = router;

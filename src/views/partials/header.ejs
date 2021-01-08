@@ -11,15 +11,15 @@
         </div>
         <div class="bars-rightmenu">
             <div class="searcher">
-                <form action="" class="search-input">
-                    <input type="text" id="search" name="search" placeholder="Buscar">
+                <form action="/search" method="GET" class="search-input" enctype="multipart/form-data">
+                    <input type="text" id="search" name="keywords" placeholder="Buscar productos...">
                 </form>
                 <a class="search-a" onclick="desplegarSearch()"><i class="fas fa-search"></i></a>
 
             </div>
 
-            <a href="/login"><i class="fas fa-user"></i></a>
-            <a href="/product/cart"><i class="fas fa-shopping-cart"></i></a>
+            <a href="/users/login"><i class="fas fa-user"></i></a>
+            <a href="/products/cart"><i class="fas fa-shopping-cart"></i></a>
         </div>
     </nav>
     <nav class="menu-oculto oculto" id="options-menu">
@@ -32,40 +32,40 @@
         </div>
         <div class="slide-container">
             <div class="subnav">
-                <a href="/product/indumentaria">Indumentaria
+                <a href="/products/indumentaria">Indumentaria
                <span></span>
              
            </a>
             </div>
             <div class="subnav">
-                <a href="/product/accesorios">Accesorios
+                <a href="/products/accesorios">Accesorios
                 <span></span>
           
             </a>
 
             </div>
             <div class="subnav">
-                <a href="/product/bijouterie">Bijouterie
+                <a href="/products/bijouterie">Bijouterie
        
             </a>
             </div>
             <div class="subnav">
-                <a href="/product/home">Hogar
+                <a href="/products/home">Hogar
             </a>
             </div>
             <div class="subnav">
-                <a href="/contacto">Contacto </a>
+                <a href="/users/contacto">Contacto </a>
             </div>
 
         </div>
 
     </nav>
     <nav class="fullscreen-menu">
-        <a href="/product/indumentaria">Indumentaria</a>
-        <a href="/product/accesorios">Accesorios</a>
-        <a href="/product/bijouterie">Bijouterie</a>
-        <a href="/product/home">Hogar</a>
-        <a href="/contacto">Contacto</a>
+        <a href="/products/indumentaria">Indumentaria</a>
+        <a href="/products/accesorios">Accesorios</a>
+        <a href="/products/bijouterie">Bijouterie</a>
+        <a href="/products/home">Hogar</a>
+        <a href="/users/contacto">Contacto</a>
     </nav>
     <hr>
 

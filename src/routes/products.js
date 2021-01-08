@@ -1,24 +1,48 @@
 const express = require('express');
 const router = express.Router();
-const controller = require('../controllers/productsControllers');
+const path = require('path');
+
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+        cb(null, path.join(__dirname, `../../public/images/products/${req.body.category}`));
+
+    },
+    filename: (req, file, callback) => {
+        callback(null, 'product-' + Date.now() + path.extname(file.originalname));
+    }
+});
+
+const upload = multer({ storage: storage });
+const productsController = require('../controllers/productsControllers');
 
 
 //rutas
-router.get('/', controller.index);
-//Funciona /product, no se ve nada porque aun falta armar el listado de productos, esta vacio.
 
-router.get('/indumentaria', controller.indumentaria);
+router.get('/indumentaria', productsController.indumentaria);
 
-router.get('/accesorios', controller.accesorios);
+router.get('/accesorios', productsController.accesorios);
 
-router.get('/bijouterie', controller.bijouterie);
+router.get('/bijouterie', productsController.bijouterie);
 
-router.get('/home', controller.home);
+router.get('/home', productsController.home);
 
-router.get('/detail', controller.detail);
+//Carrito
+router.get('/cart', productsController.cart);
 
-router.get('/cart', controller.cart);
+//Creacion y guardado un producto
+router.get('/create', productsController.create);
+router.post('/', upload.single('image'), productsController.store);
 
-router.get('/edicion', controller.edicion);
+//Editar un producto y actualizacion
+router.get('/:id/edit', productsController.edit);
+router.put('/:id', upload.single('image'), productsController.update);
+
+//Detalle de cada producto
+router.get('/:id', productsController.detail);
+
+//Delete
+router.delete('/:id', productsController.destroy);
 
 module.exports = router;

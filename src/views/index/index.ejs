@@ -7,22 +7,24 @@
 
             <main>
                 <div class="slideshow-container">
+
                     <div class="mySlides fade">
 
-                        <img src="../images/punk2.png" style="width:100%">
+                        <img src="../images/a1.png" style="width:100%">
+
                     </div>
 
                     <div class="mySlides fade">
 
-                        <img src="../images/postap.png" style="width:100%">
+                        <img src="../images/a2.jpg" style="width:100%">
 
                     </div>
-
                     <div class="mySlides fade">
 
-                        <img src="../images/postap3.jpg" style="width:100%">
+                        <img src="../images/a3.jpg" style="width:100%">
 
                     </div>
+
                     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                     <a class="next" onclick="plusSlides(1)">&#10095;</a>
                 </div>
@@ -42,98 +44,36 @@
                                 <span>Indumentaria</span>
                             </div>
                             <div class="moving">
-                                <span>Gótica, post-apocalíptica, punk, steampunk.</span>
+                                <span>
+                                    <p>Gótica, post-apocalíptica, punk, steampunk.</p></span>
                             </div>
                         </div>
                         <!---->
                         <div class="clothes-container">
-                            <article class="myclothesSlides fade">
-                                <img src="../images/indu1.png">
-                                <span class="clothes-detail">Punk Rave
-                            Black 'Rebellion' Waistcoat</span>
-                                <span class="clothes-price">$1.550</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="clothesbutton">Agregar al carrito</button>
-                            </article>
+                            <% for(let i = 0;i<products.length;i++) { %>
+                                <% if(products[i].category =="indumentaria") {%>
+                                    <a href="/products/<%= products[i].id  %> ">
+                                        <article class="myclothesSlides fade">
+                                            <img src="/images/products/indumentaria/<%= products[i].image  %> ">
+                                            <span class="clothes-detail"><%=products[i].name%></span>
+                                            <span class="clothes-price"><%=products[i].price%></span>
 
-                            <article class="myclothesSlides fade">
-                                <img src="../images/indu2.png">
-                                <span class="clothes-detail">Black 'Lilian' Short Sleeves Lolita Top</span>
-                                <span class="clothes-price">$1.250</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="clothesbutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myclothesSlides fade">
-                                <img src="../images/indu3.png">
-                                <span class="clothes-detail">Black 'Ballista' Short Sleeves Blouse</span>
-                                <span class="clothes-price">$1.950</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="clothesbutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myclothesSlides fade">
-                                <img src="../images/indu4.png">
-                                <span class="clothes-detail">Black 'Centaur' Pants</span>
-                                <span class="clothes-price">$2.250</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="clothesbutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myclothesSlides fade">
-                                <img src="../images/indu5.png">
-                                <span class="clothes-detail">Punk Rave Gothic Black Men's </span>
-                                <span class="clothes-price">$4.250</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="clothesbutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myclothesSlides fade">
-                                <img src="../images/indu6.png">
-                                <span class="clothes-detail">Black Brocade and Burgundy Velvet 'Silvanus' Waistcoat</span>
-                                <span class="clothes-price">$3.250</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="clothesbutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myclothesSlides fade">
-                                <img src="../images/indu7.png">
-                                <span class="clothes-detail">Black 'Alien Nation' Gothic Coat</span>
-                                <span class="clothes-price">$3.250</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="clothesbutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myclothesSlides fade">
-                                <img src="../images/indu8.png">
-                                <span class="clothes-detail"> Black Overbust Steampunk Corset</span>
-                                <span class="clothes-price">$4.250</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="clothesbutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myclothesSlides fade">
-                                <img src="../images/indu9.png">
-                                <span class="clothes-detail">Black 'Destruction Unit' Top</span>
-                                <span class="clothes-price">$1.750</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="clothesbutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myclothesSlides fade">
-                                <img src="../images/indu10.png">
-                                <span class="clothes-detail">Short Pant Bondage Hot Pants</span>
-                                <span class="clothes-price">$1.150</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="clothesbutton">Agregar al carrito</button>
-                            </article>
-
-                            <a class="prev" onclick="clothesplusSlides(-1)">&#10094;</a>
-                            <a class="next" onclick="clothesplusSlides(1)">&#10095;</a>
+                                            <button class="clothesbutton">Agregar al carrito</button>
+                                        </article>
+                                    </a>
+                                    <%  } %>
+                                        <% } %>
+                                            <a class="prev" onclick="clothesplusSlides(-1)">&#10094;</a>
+                                            <a class="next" onclick="clothesplusSlides(1)">&#10095;</a>
 
                         </div>
-                        <a class="seemore" href="/product/indumentaria">
+                        <a class="seemore" href="/products/indumentaria">
                             <p>Ver más</p>
                         </a>
                     </div>
                     <div class="interludio">
-
                     </div>
                 </section>
-
-
                 <section>
                     <div class="product-accesory">
                         <div class="barr">
@@ -141,84 +81,27 @@
                                 <span>Accesorios</span>
                             </div>
                             <div class="moving">
-                                <span>Mochilas, cinturones, guantes, sombreros, máscaras.</span>
+                                <span><p>Mochilas, cinturones, guantes, sombreros, máscaras.</p></span>
                             </div>
                         </div>
                         <div class="accesory-container">
-                            <article class="myAccesorySlides fade">
-                                <img src="../images/accesorio1.png">
-                                <span class="accesory-detail">Waterproof backpack with owl pattern</span>
-                                <span class="accesory-price">$1.050</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="accesorybutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myAccesorySlides fade">
-                                <img src="../images/accesorio2.png">
-                                <span class="accesory-detail">Helmet Hat Steam Punk Biker </span>
-                                <span class="accesory-price">$850</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="accesorybutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myAccesorySlides fade">
-                                <img src="../images/accesorio3.png">
-                                <span class="accesory-detail">Steampunk 'Kraken' Mini Top Hat</span>
-                                <span class="accesory-price">$1.300</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="accesorybutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myAccesorySlides fade">
-                                <img src="../images/accesorio4.png">
-                                <span class="accesory-detail">Black 'Wolverine' Faux Fur Jacket</span>
-                                <span class="accesory-price">$2.850</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="accesorybutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myAccesorySlides fade">
-                                <img src="../images/accesorio5.png">
-                                <span class="accesory-detail">Black 'Warlock' Face Mask</span>
-                                <span class="accesory-price">$4.150</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="accesorybutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myAccesorySlides fade">
-                                <img src="../images/accesorio6.png">
-                                <span class="accesory-detail">Women's Punk Rivets Faux Leather Masks</span>
-                                <span class="accesory-price">$3.150</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="accesorybutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myAccesorySlides fade">
-                                <img src="../images/accesorio7.png">
-                                <span class="accesory-detail">Velvet Leather Choker Gothic Punk</span>
-                                <span class="accesory-price">$2.220</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="accesorybutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myAccesorySlides fade">
-                                <img src="../images/accesorio8.png">
-                                <span class="accesory-detail">'Claustramoris' Pendant</span>
-                                <span class="accesory-price">$3.150</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="accesorybutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myAccesorySlides fade">
-                                <img src="../images/accesorio9.png">
-                                <span class="accesory-detail">Punk Rave Gothic Mens Black Long </span>
-                                <span class="accesory-price">$5.150</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="accesorybutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myAccesorySlides fade">
-                                <img src="../images/accesorio10.png">
-                                <span class="accesory-detail">Punk Rave Mens Punk Military Hat</span>
-                                <span class="accesory-price">$4.350</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="accesorybutton">Agregar al carrito</button>
-                            </article>
-                            <a class="prev" onclick="accesoryplusSlides(-1)">&#10094;</a>
-                            <a class="next" onclick="accesoryplusSlides(1)">&#10095;</a>
+                            <% for(let j = 0;j<products.length;j++) { %>
+                                <% if(products[j].category =="accesorios") {%>
+                                    <a href="/products/<%= products[j].id  %> ">
+                                        <article class="myAccesorySlides fade">
+                                            <img src="../images/products/accesorios/<%= products[j].image %> ">
+                                            <span class="accesory-detail"><%= products[j].name  %> </span>
+                                            <span class="accesory-price"><%= products[j].price%> </span>
+
+                                            <button class="accesorybutton">Agregar al carrito</button>
+                                        </article>
+                                    </a>
+                                    <%  } %>
+                                        <% } %>
+                                            <a class="prev" onclick="accesoryplusSlides(-1)">&#10094;</a>
+                                            <a class="next" onclick="accesoryplusSlides(1)">&#10095;</a>
                         </div>
-                        <a class="seemore" href="/product/accesorios">
+                        <a class="seemore" href="/products/accesorios">
                             <p>Ver más</p>
                         </a>
                     </div>
@@ -247,84 +130,28 @@
                                 <span>Bijouterie</span>
                             </div>
                             <div class="moving">
-                                <span>Anillos, aros, brazaletes, collares.</span>
+                                <span><p>Anillos, aros, brazaletes, collares.</p></span>
                             </div>
                         </div>
                         <div class="bijoux-container">
-                            <article class="myBijouxSlides fade">
-                                <img src="../images/bijoux1.png">
-                                <span class="bijoux-detail">Leather bracelet The New </span>
-                                <span class="bijoux-price">$4.150</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="bijouxbutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myBijouxSlides fade">
-                                <img src="../images/bijoux2.png">
-                                <span class="bijoux-detail">Leather bracelet The Dark</span>
-                                <span class="bijoux-price">$3.150</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="bijouxbutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myBijouxSlides fade">
-                                <img src="../images/bijoux3.png">
-                                <span class="bijoux-detail">Leather bracelet The Luminous</span>
-                                <span class="bijoux-price">$3.200</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="bijouxbutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myBijouxSlides fade">
-                                <img src="../images/bijoux4.png">
-                                <span class="bijoux-detail">The Gentle Lilly</span>
-                                <span class="bijoux-price">$3.150</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="bijouxbutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myBijouxSlides fade">
-                                <img src="../images/bijoux5.png">
-                                <span class="bijoux-detail">The Gracious Wing</span>
-                                <span class="bijoux-price">$4.500</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="bijouxbutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myBijouxSlides fade">
-                                <img src="../images/bijoux6.png">
-                                <span class="bijoux-detail">The Gentle Rock</span>
-                                <span class="bijoux-price">$2.950</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="bijouxbutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myBijouxSlides fade">
-                                <img src="../images/bijoux7.png">
-                                <span class="bijoux-detail">The Humble Voice</span>
-                                <span class="bijoux-price">$4.250</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="bijouxbutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myBijouxSlides fade">
-                                <img src="../images/bijoux8.png">
-                                <span class="bijoux-detail">The Arctic Bloue</span>
-                                <span class="bijoux-price">$3.150</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="bijouxbutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myBijouxSlides fade">
-                                <img src="../images/bijoux9.png">
-                                <span class="bijoux-detail">The Coral Twist</span>
-                                <span class="bijoux-price">$1.850</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="bijouxbutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myBijouxSlides fade">
-                                <img src="../images/bijoux10.png">
-                                <span class="bijoux-detail"> Cross Leather Bracelet Wristband</span>
-                                <span class="bijoux-price">$850</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="bijouxbutton">Agregar al carrito</button>
-                            </article>
-                            <a class="prev" onclick="bijouxplusSlides(-1)">&#10094;</a>
-                            <a class="next" onclick="bijouxplusSlides(1)">&#10095;</a>
+                            <% for(let k = 0;k<products.length;k++) { %>
+                                <% if(products[k].category =="bijouterie") {%>
+                                    <a href="/products/<%=products[k].id %>">
+                                        <article class="myBijouxSlides fade">
+                                            <img src="../images/products/bijouterie/<%=products[k].image %> ">
+                                            <span class="bijoux-detail"><%= products[k].name %>  </span>
+                                            <span class="bijoux-price"><%=products[k].price %></span>
+
+
+                                            <button class="bijouxbutton">Agregar al carrito</button>
+                                        </article>
+                                    </a>
+                                    <% } %>
+                                        <% } %>
+                                            <a class="prev" onclick="bijouxplusSlides(-1)">&#10094;</a>
+                                            <a class="next" onclick="bijouxplusSlides(1)">&#10095;</a>
                         </div>
-                        <a class="seemore" href="/product/bijouterie">
+                        <a class="seemore" href="/products/bijouterie">
                             <p>Ver más</p>
                         </a>
                     </div>
@@ -340,42 +167,27 @@
                                 <span>Hogar</span>
                             </div>
                             <div class="moving">
-                                <span>Tapices, atrapasueños, decorativos.</span>
+                                <span><p>Tapices, atrapasueños, decorativos.</p></span>
                             </div>
                         </div>
                         <div class="home-container">
-                            <article class="myHomeSlides fade">
-                                <img src="../images/hogar1.png">
-                                <span class="home-detail">Lovers Tapestry</span>
-                                <span class="home-price">$5.150</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="homebutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myHomeSlides fade">
-                                <img src="../images/hogar2.png">
-                                <span class="home-detail">The Star Tapestry</span>
-                                <span class="home-price">$5.200</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="homebutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myHomeSlides fade">
-                                <img src="../images/hogar3.png">
-                                <span class="home-detail">The Vault by Alchemy Dragonlore Clock</span>
-                                <span class="home-price">$8.150</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="homebutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myHomeSlides fade">
-                                <img src="../images/hogar4.png">
-                                <span class="home-detail">All Seeing Eye Macrame Dream Catcher</span>
-                                <span class="home-price">$1.950</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="homebutton">Agregar al carrito</button>
-                            </article>
-                            <a class="prev" onclick="homeplusSlides(-1)">&#10094;</a>
-                            <a class="next" onclick="homeplusSlides(1)">&#10095;</a>
+                            <% for(let l = 0;l<products.length;l++) { %>
+                                <% if(products[l].category =="home") {%>
+                                    <a href="/products/<%= products[l].id %> ">
+                                        <article class="myHomeSlides fade">
+                                            <img src="../images/products/home/<%= products[l].image %> ">
+                                            <span class="home-detail"><%= products[l].name %> </span>
+                                            <span class="home-price"><%=products[l].price%> </span>
+
+                                            <button class="homebutton">Agregar al carrito</button>
+                                        </article>
+                                    </a>
+                                    <% } %>
+                                        <% } %>
+                                            <a class="prev" onclick="homeplusSlides(-1)">&#10094;</a>
+                                            <a class="next" onclick="homeplusSlides(1)">&#10095;</a>
                         </div>
-                        <a class="seemore" href="/product/home">
+                        <a class="seemore" href="/products/home">
                             <p>Ver más</p>
                         </a>
                     </div>

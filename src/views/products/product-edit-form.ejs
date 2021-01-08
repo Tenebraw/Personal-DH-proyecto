@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('../partials/head', {title: 'Formulario de creación'}) %>
+
+    <body>
+        <!-- Header -->
+        <%- include('../partials/header') %>
+            <!-- /Header -->
+
+            <div class="container-productscreation">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="products-title"><i class="fas fa-moon"></i>Estás editando:
+                            <%=product && product.name%>
+                        </h2>
+                    </div>
+                </div>
+                <div class="product-creation">
+                    <form action="/products/<%=product && product.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+                        <div class="row product-detail">
+                            <div class="detail-create">
+                                <label for="name" class="form-label">Nombre del producto:</label>
+                                <input type="text" id="name" name="name" class="form-input" value="<%=product && product.name%> ">
+                            </div>
+                            <hr>
+                            <div class="detail-create">
+                                <label for="price" class="form-label">Precio del producto:</label>
+                                <input type="text" id="price" name="price" class="form-input" value="<%=toThousand(product && product.price) %> ">
+                            </div>
+                            <hr>
+                            <!-- <div class="detail-create">
+                                <label for="discount" class="form-label">Descuento:</label>
+                                <input type="text" id="discount" name="discount" placeholder="Ej: 15" class="form-input">
+                            </div>-->
+                            <div class="detail-create">
+                                <label for="category" class="form-label">Categoría:</label>
+                                <select name="category" id="category" class="form-input">
+                            <option value="<%=product && product.category%>"><%=product && product.category%></option>
+							<option value="indumentaria">Indumentaria</option>
+                            <option value="accesorios">Accesorios</option>
+                            <option value="bijouterie">Bijouterie</option>
+                            <option value="home">Hogar</option>
+						</select>
+                            </div>
+                            <hr>
+                            <div class="detail-create">
+                                <label for="size">Tamaño</label>
+                                <select name="size" id="size">
+                                    <option value="<%=product && product.size%>"><%=product && product.size%></option>
+                                    <option value="xs">XS</option>
+                                    <option value="s">S</option>
+                                    <option value="m">M</option>
+                                    <option value="l">L</option>
+                                    <option value="xl">XL</option>
+                                    <option value="2xl">2XL</option>
+                                </select>
+                            </div>
+                            <hr>
+                            <div class="detail-create">
+                                <label for="description" class="form-label">Descripción:</label>
+                                <textarea name="description" id="description" class="form-input"><%=product && product.description %> </textarea>
+                            </div>
+                            <hr>
+                            <div class="detail-create">
+                                <img src="/images/products/<%=product.category%>/<%=product &&product.image %>" class="image-edit" alt="">
+                            </div>
+                            <div class="detail-create">
+                                <label for="image">Seleccionar una nueva imagen</label>
+                                <input type="file" name="image">
+
+                            </div>
+                            <hr>
+                            <div class="creation-submit">
+                                <button type="submit">Editar producto</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <!-- /todos los productos -->
+
+            <!-- footer -->
+            <%- include('../partials/footer') %>
+                <!-- /footer -->
+    </body>
+
+</html>

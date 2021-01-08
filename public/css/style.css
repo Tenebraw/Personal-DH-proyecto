@@ -25,6 +25,7 @@
                         font-family: 'Dosis', sans-serif;
                         overflow-y: scroll;
                         overflow-x: hidden;
+                        background: url("../images/body.jpg") repeat center center;
                     }
                     
                     .bars-rightmenu,
@@ -37,6 +38,7 @@
                         background: black;
                         width: 170px;
                         margin-right: 10px;
+                        border: 1px solid whitesmoke;
                     }
                     
                     .showme {
@@ -79,11 +81,8 @@
                         margin-bottom: 10px;
                     }
                     
-                    .indumentaria .clothes-container a,
-                    .accesorios .accesory-container a,
-                    .bijouterie .bijoux-container a,
-                    .home .home-container a {
-                        display: none;
+                    a {
+                        text-decoration: none;
                     }
                     /**/
                     
@@ -263,25 +262,6 @@
                         padding: 10px 20px;
                     }
                     
-                    .moving {
-                        position: relative;
-                        padding-left: 100%;
-                        white-space: nowrap;
-                        display: inline-block;
-                        animation: myfirst 20s linear infinite;
-                        background: #6a040f;
-                        padding-top: 5px;
-                        padding-bottom: 5px;
-                        padding-right: 15px;
-                        color: #f8edeb;
-                    }
-                    
-                    .stable {
-                        padding: 5px;
-                        background: #212529;
-                        color: whitesmoke;
-                    }
-                    
                     .product-accesory article,
                     .product-clothes article,
                     .product-bijoux article,
@@ -296,7 +276,7 @@
                     article {
                         position: relative;
                         text-align: center;
-                        background: linear-gradient(to right, rgba(226, 226, 226, 1) 1%, rgba(226, 226, 226, 1) 2%, rgba(209, 209, 209, 1) 18%, rgba(217, 217, 217, 1) 71%, rgba(218, 218, 218, 1) 77%, rgba(219, 219, 219, 1) 85%, rgba(254, 254, 254, 1) 97%);
+                        background-color: #D6D1CA;
                     }
                     
                     article img {
@@ -370,18 +350,16 @@
                         background: black;
                         color: white;
                     }
-                    
-                    article i {
+                    /*article i {
                         position: absolute;
                         top: 22px;
                         right: 20px;
                         color: #8d0801;
-                    }
-                    
-                    article:hover i {
+                    }*/
+                    /* article:hover i {
                         transform: rotateZ(360deg);
                         transition: transform 1s;
-                    }
+                    }*/
                     
                     footer {
                         width: 100%;
@@ -563,8 +541,16 @@
                             opacity: 1
                         }
                     }
+                    /*@keyframes myfirst {
+                        0% {
+                            transform: translate(0, 0);
+                        }
+                        100% {
+                            transform: translate(-100%, 0);
+                        }
+                    }*/
                     
-                    @keyframes myfirst {
+                    @keyframes marquee {
                         0% {
                             transform: translate(0, 0);
                         }
@@ -839,6 +825,7 @@
                     .main-container-product>.main-product {
                         width: calc(60% - 1rem);
                         margin: 0 0.5rem 0.5rem 0.5rem;
+                        background: white;
                     }
                     
                     .main-product img {
@@ -881,10 +868,64 @@
                         border: 1px solid white;
                     }
                     
-                    .details-products button:hover {
+                    .details-products button:hover,
+                    .detail-editanddelete a:hover {
                         background: darkgrey;
                     }
                     /*Carga y edicion de productos*/
+                    
+                    .container-productscreation {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        color: white;
+                        padding: 30px;
+                    }
+                    
+                    .product-creation {
+                        border: 1px solid white;
+                        width: 90%;
+                        background: black;
+                    }
+                    
+                    .detail-create {
+                        margin: 30px 15px;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                    }
+                    
+                    .detail-submit {
+                        display: flex;
+                        margin: 30px;
+                        justify-content: center;
+                    }
+                    
+                    .detail-create textarea {
+                        height: 10vh;
+                        width: 50%;
+                    }
+                    
+                    .creation-submit {
+                        display: flex;
+                        justify-content: center;
+                    }
+                    
+                    .creation-submit button {
+                        margin: 1rem;
+                        padding: 5px;
+                        cursor: pointer;
+                    }
+                    
+                    .creation-submit button:hover {
+                        background: #6a040f;
+                    }
+                    
+                    .detail-create>input,
+                    .detail-create>select {
+                        width: 50%;
+                        height: 5vh;
+                    }
                     
                     .form-container {
                         color: whitesmoke;
@@ -898,72 +939,93 @@
                         margin-bottom: 5.5rem;
                     }
                     
-                    .form-container form>div {
+                    .barr {
                         display: flex;
-                        justify-content: space-between;
-                    }
-                    
-                    .form-container button,
-                    .form-container a {
-                        margin-top: 1.5rem;
-                        cursor: pointer;
-                        padding: 5px;
-                        color: black;
-                        background: whitesmoke;
-                        border: 1px solid white;
-                        width: 8.5rem;
-                        margin-bottom: 1.5rem;
-                        margin-left: auto;
-                        margin-right: auto;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        font: bold 0.7rem Arial;
-                        text-decoration: none;
-                    }
-                    
-                    .form-container button:hover,
-                    .form-container a:hover {
-                        background: rgb(161, 31, 31);
-                        border: 1px solid black;
-                    }
-                    
-                    .form-onlynewproducts p,
-                    .form-editproducts p {
-                        font-size: 0.85rem;
-                    }
-                    
-                    .carga-precio input,
-                    .edit-precio input {
-                        text-align: center;
-                    }
-                    
-                    .form-delete {
                         width: 100%;
                     }
                     
-                    .seleccion-accion {
+                    .stable {
+                        padding: 12px 2vw 5px 3vw;
+                        flex-shrink: 0;
+                        background: #212529;
+                        color: whitesmoke;
+                        min-height: 48px;
+                        max-height: 48px;
+                        z-index: 1;
+                    }
+                    
+                    .moving {
+                        min-height: 48px;
+                        max-height: 48px;
+                        background-color: #D6D1CA;
+                        color: #6C8B7E;
+                        padding: 13px 0 0 0;
+                        padding-left: 0px;
+                        width: 100%;
+                        position: relative;
+                        z-index: 0;
+                        margin: 0;
+                        white-space: nowrap;
+                        overflow: hidden;
+                    }
+                    
+                    .moving span {
+                        display: inline-block;
+                        padding-left: 100%;
+                        animation: marquee 25s linear infinite;
+                    }
+                    
+                    .moving span p {
+                        margin: 0 0 20px;
+                        color: black;
+                    }
+                    
+                    .detail-editanddelete {
+                        margin-top: 50px;
                         display: flex;
                         flex-direction: row;
+                        justify-content: space-evenly;
                     }
                     
-                    .seleccion-accion button {
-                        width: 30%;
+                    .detail-editanddelete a {
+                        text-decoration: none;
+                        color: black;
+                        border: 1px solid black;
+                        background: whitesmoke;
+                        padding: 10px 25px;
+                        border-radius: 5px;
+                        display: flex;
                         align-items: center;
+                        font-size: 13px;
+                        font-family: sans-serif;
                     }
                     
-                    .form-editproducts,
-                    .form-delete,
-                    .form-onlynewproducts {
-                        display: none;
+                    .detail-editanddelete button {
+                        cursor: pointer;
+                        padding: 10px 25px;
+                        color: black;
+                        background: whitesmoke;
+                        border: 1px solid black;
+                        border-radius: 5px;
+                        margin: 0 auto;
                     }
                     
-                    .mostrarmenu {
-                        display: block;
+                    .detail-create .image-edit {
+                        width: 20%;
+                        height: auto;
+                        margin: 0 auto;
                     }
                     
-                    .escondermenu {
-                        display: none;
+                    .about-titles {
+                        padding: 15px;
+                        line-height: 1.5;
+                        width: 100%;
+                        color: whitesmoke;
+                    }
+                    
+                    .goodbye img {
+                        width: 100%;
+                        height: auto;
                     }
                     
                     @media all and (min-width:769px) {
@@ -1020,6 +1082,11 @@
                     }
                     
                     @media (min-width:1024px) {
+                        body {
+                            margin-left: auto;
+                            margin-right: auto;
+                            width: 1400px;
+                        }
                         header {
                             position: sticky;
                             top: 0;
@@ -1060,12 +1127,6 @@
                         .myBijouxSlides,
                         .myHomeSlides {
                             transition: transform 250ms ease-out;
-                        }
-                        .barr {
-                            text-align: center;
-                        }
-                        .stable {
-                            font-size: larger;
                         }
                         .content-footer {
                             display: flex;
@@ -1113,7 +1174,7 @@
                         .title-property {
                             display: flex;
                             position: absolute;
-                            left: 690px;
+                            left: 590px;
                         }
                         .bars-rightmenu {
                             justify-content: end;
@@ -1221,5 +1282,20 @@
                         .bijouterie article,
                         .home article {
                             margin-bottom: 20px;
+                        }
+                        .goodbye {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                        }
+                        .goodbye p {
+                            padding: 5px;
+                        }
+                        .goodbye img {
+                            width: 40%;
+                            height: auto;
+                        }
+                        .goodbye h3 {
+                            display: none;
                         }
                     }

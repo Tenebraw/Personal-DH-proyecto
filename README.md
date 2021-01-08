@@ -39,5 +39,35 @@ Durante el proceso de investigacion busque referentes con tematicas afines, algu
 - https://www.rebelsmarket.com/
 - https://www.thedarkstore.com/en/112-post-apocalyptic?page=3
 - https://shopdark.com/products/dream-catcher-catchers-hanging-diy-decoration-nordic-decoration-home-girls-room-nursery-kids-decor-dreamcatcher-children-room?variant=31543540482095
+https://www.tragicbeautiful.com/
+https://www.fantasmagoria.eu/
 
+## BREAD (Browse, Read, Edit, Add, Delete)
+## Métodos HTTP
+- **GET** > Pedidos de Información.
+- **POST** > Envío de Información / Creación de un registro.
+- **PUT** > Edición de todo el registro.
+- **PATCH** > Edición de parte del registro.
+- **DELETE** > Eliminación del registro.
+HTML solamente soporta GET y POST, siendo GET el método por defecto.
+# Métodos HTTP en Node
+Node siempre distingue el método por el que llega la ruta, por más que la direccion sea la misma.
+
+## Parámetros
+`req.params.loQueSea`
+
+## Query String (GET)
+`req.query.loQueSea`
+
+## Body (POST)
+
+## Vistas
+- Instalar ejs.
+
+## Procesamiento PUT y DELETE
+- Instalar method-override
+- Requerirlo.
+
+## Subida de Archivos
+- Instalar multer.
 

@@ -12,90 +12,31 @@
                                 <span>Bijouterie</span>
                             </div>
                             <div class="moving">
-                                <span>Anillos, aros, brazaletes, collares.</span>
+                                <span><p>Anillos, aros, brazaletes, collares.</p></span>
                             </div>
                         </div>
                         <div class="bijoux-container">
-                            <article class="myBijouxSlides fade">
-                                <img src="../images/bijoux1.png">
-                                <span class="bijoux-detail">Leather bracelet The New </span>
-                                <span class="bijoux-price">$4.150</span>
-                                <i class="fas fa-sync-alt"></i>
+                            <% for(let i = 0;i<products.length;i++) { %>
+                                <% if(products[i].category =="bijouterie") {%>
+                                    <article class="myBijouxSlides fade">
+                                        <a href="/products/<%= products[i].id  %> ">
+                                <img src="/images/products/bijouterie/<%= products[i].image %> ">
+                                <span class="bijoux-detail"><%= products[i].name %> </span>
+                                <span class="bijoux-price"><%= products[i].price %> </span>
                                 <button class="bijouxbutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myBijouxSlides fade">
-                                <img src="../images/bijoux2.png">
-                                <span class="bijoux-detail">Leather bracelet The Dark</span>
-                                <span class="bijoux-price">$3.150</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="bijouxbutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myBijouxSlides fade">
-                                <img src="../images/bijoux3.png">
-                                <span class="bijoux-detail">Leather bracelet The Luminous</span>
-                                <span class="bijoux-price">$3.200</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="bijouxbutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myBijouxSlides fade">
-                                <img src="../images/bijoux4.png">
-                                <span class="bijoux-detail">The Gentle Lilly</span>
-                                <span class="bijoux-price">$3.150</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="bijouxbutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myBijouxSlides fade">
-                                <img src="../images/bijoux5.png">
-                                <span class="bijoux-detail">The Gracious Wing</span>
-                                <span class="bijoux-price">$4.500</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="bijouxbutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myBijouxSlides fade">
-                                <img src="../images/bijoux6.png">
-                                <span class="bijoux-detail">The Gentle Rock</span>
-                                <span class="bijoux-price">$2.950</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="bijouxbutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myBijouxSlides fade">
-                                <img src="../images/bijoux7.png">
-                                <span class="bijoux-detail">The Humble Voice</span>
-                                <span class="bijoux-price">$4.250</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="bijouxbutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myBijouxSlides fade">
-                                <img src="../images/bijoux8.png">
-                                <span class="bijoux-detail">The Arctic Bloue</span>
-                                <span class="bijoux-price">$3.150</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="bijouxbutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myBijouxSlides fade">
-                                <img src="../images/bijoux9.png">
-                                <span class="bijoux-detail">The Coral Twist</span>
-                                <span class="bijoux-price">$1.850</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="bijouxbutton">Agregar al carrito</button>
-                            </article>
-                            <article class="myBijouxSlides fade">
-                                <img src="../images/bijoux10.png">
-                                <span class="bijoux-detail"> Cross Leather Bracelet Wristband</span>
-                                <span class="bijoux-price">$850</span>
-                                <i class="fas fa-sync-alt"></i>
-                                <button class="bijouxbutton">Agregar al carrito</button>
-                            </article>
-                            <a class="prev" onclick="bijouxplusSlides(-1)">&#10094;</a>
-                            <a class="next" onclick="bijouxplusSlides(1)">&#10095;</a>
+                            </a>
+                                    </article>
+                                    <%  } %>
+                                        <% } %>
+
+                                            <a class="prev" onclick="bijouxplusSlides(-1)">&#10094;</a>
+                                            <a class="next" onclick="bijouxplusSlides(1)">&#10095;</a>
                         </div>
                     </div>
                     <div class="interludio">
 
                     </div>
                 </section>
-
-
 
             </main>
             <%- include('../partials/footer'); %>

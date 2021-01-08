@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head', {title : 'Resultados de tu busqueda'})%>
+
+    <body>
+        <%- include('../partials/header');%>
+            <main>
+                <div class="contacto-container">
+                    <div class="contacto-titles">
+                        <h2>Resultados de la búsqueda</h2>
+                        <hr>
+                        <% if(results.length>0) {%>
+                            <% for (let i =0; i<results.length;i++) {%>
+                                <section>
+                                    <a href="/products/<%=results[i].id  %>">
+                                    <img src="/images/products/<%=results[i].category%>/<%= results[i].image%>">
+                                    <article>
+                                        <h3><%= results[i].price%> </h3>
+                                        <span><%= results[i].name%></span>
+                        
+                                    </article>
+                                    </a>
+                                </section>
+                                <% } %>
+                                    <% } else{ %>
+                                        <h3>No hay productos que coincidan con su busqueda</h3>
+
+
+                                        <%  } %>
+                    </div>
+
+                </div>
+
+
+
+
+            </main>
+            <%- include('../partials/footer'); %>
+                <script src="../../js/menu.js"></script>
+                <script src="../js/contacto.js"></script>
+
+
+
+
+    </body>
+
+</html>
