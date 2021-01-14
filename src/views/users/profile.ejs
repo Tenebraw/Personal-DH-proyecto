@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head', {title:user.name});%>
+
+    <body>
+        <%- include('../partials/header');%>
+            <main>
+                <div class="main-container-product">
+                    <div class="details-products">
+
+                        <h3>
+                            Nombre y Apellido:
+                        </h3>
+                        <p>
+                            <%= user.first_name %>
+                                <%= user.last_name %>
+                        </p>
+                        <br>
+                        <h3>E-mail:</h3>
+                        <p>
+                            <%= user.email %>
+
+                        </p>
+
+                        <div class="detail-editanddelete">
+                            <a href="/">Ir al carrito de compras</a>
+                            <a href="/users/<%=user.id%>/edit ">Editar</a>
+                            <form action="/users/<%=user && user.id%>?_method=DELETE" method="POST">
+                                <button type="submit">Eliminar</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+            </main>
+            <%- include('../partials/footer'); %>
+                <script src="../js/menu.js"></script>
+                <script src="../js/productDetail.js"></script>
+
+    </body>
+
+</html>

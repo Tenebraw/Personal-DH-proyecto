@@ -13,10 +13,31 @@
                         <p>Por favor, ingrese su email y password</p>
                     </div>
 
-                    <form action="" method="POST">
+                    <form action="/users/login" method="POST">
+                        <div class="login-box">
+                            <input type="text" name="email" id="email" placeholder="Email">
+                            <% if(locals.errors && errors.email) { %>
+                                <p class="feedback is-danger">
+                                    <%= errors.email.msg %>
+                                </p>
 
-                        <input type="email" id="email" placeholder="Email">
-                        <input type="password" id="password" placeholder="Password">
+                                <% } %>
+                                    <div class="remember-box">
+
+                                        <input type="password" name="password" id="password" placeholder="Password">
+                                        <% if(locals.errors && errors.password) { %>
+                                            <p class="feedback is-danger">
+                                                <%= errors.password.msg %>
+                                            </p>
+                                            <% } %>
+                                                <div class="control">
+                                                    <label for="remember">Recordarme
+                                            <input type="checkbox" name="remember" id="remember">
+                                        </label>
+                                                </div>
+                                    </div>
+                        </div>
+
                         <button type="submit">Login</button>
                         <p>No tiene una cuenta?<a href="/users/register">Registrese</a></p>
 

@@ -10,18 +10,38 @@
                         <h2>Registro</h2>
                         <p>Por favor, complete sus datos</p>
                     </div>
+                    <% locals.errors %>
 
-                    <form action="" method="POST">
+                        <form action="/users" method="POST">
+                            <input type="text" name="name" id="nombre" placeholder="Nombre" value="<%=locals.user ? user.name: ' ' %> ">
+                            <p class="feedback<%=locals.errors && errors.name ? ' is-danger' : ' '  %>">
+                                <%=locals.errors && errors.name ? errors.name.msg: ' ' %>
+                            </p>
+                            <input type="text" name="lastname" id="apellido" placeholder="Apellido" value="<%=locals.user ? user.lastname: ' ' %> ">
+                            <p class="feedback<%=locals.errors && errors.lastname ? ' is-danger' : ' '  %>">
+                                <%=locals.errors && errors.lastname ? errors.lastname.msg: ' ' %>
+                            </p>
 
-                        <input type="text" name="nombre" id="nombre" placeholder="Nombre">
-                        <input type="text" name="apellido" id="apellido" placeholder="Apellido">
-                        <input type="email" name="email" id="email" placeholder="Email">
-                        <input type="password" name="password" id="password" placeholder="Password">
-                        <input type="password" name="password" id="passwordconfirmation" placeholder="Confirme su password">
-                        <button type="submit">Enviar</button>
-                        <button type="reset">Limpiar</button>
+                            <input type="email" name="email" id="email" placeholder="Email" value="<%=locals.user ? user.email: ' ' %> ">
+                            <p class="feedback<%=locals.errors && errors.email ? ' is-danger' : ' '  %>">
+                                <%=locals.errors && errors.email? errors.email.msg: ' ' %>
+                            </p>
 
-                    </form>
+                            <input type="password" name="password" id="password" placeholder="Password">
+                            <p class="feedback<%=locals.errors && errors.password ? ' is-danger' : ' '  %>">
+                                <%=locals.errors && errors.password ? errors.password.msg: ' ' %>
+                            </p>
+
+                            <input type="password" name="passwordconfirmation" id="passwordconfirmation" placeholder="Confirme su password">
+                            <p class="feedback<%=locals.errors && errors.passwordconfirmation ? ' is-danger' : ' '  %>">
+                                <%=locals.errors && errors.passwordconfirmation ? errors.passwordconfirmation.msg: ' ' %>
+                            </p>
+
+
+                            <button type="submit">Enviar</button>
+                            <button type="reset">Limpiar</button>
+
+                        </form>
                 </div>
 
 

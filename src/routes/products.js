@@ -2,6 +2,10 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 
+const validate = require('../validators/productsvalidators');
+const adminRoutes = require('../middlewares/adminRoutes');
+
+
 const multer = require('multer');
 
 const storage = multer.diskStorage({
@@ -32,17 +36,17 @@ router.get('/home', productsController.home);
 router.get('/cart', productsController.cart);
 
 //Creacion y guardado un producto
-router.get('/create', productsController.create);
-router.post('/', upload.single('image'), productsController.store);
+router.get('/create', adminRoutes, productsController.create);
+router.post('/', adminRoutes, upload.single('image'), validate.createForm, productsController.store);
 
 //Editar un producto y actualizacion
-router.get('/:id/edit', productsController.edit);
-router.put('/:id', upload.single('image'), productsController.update);
+router.get('/:id/edit', adminRoutes, productsController.edit);
+router.put('/:id', adminRoutes, upload.single('image'), productsController.update);
 
 //Detalle de cada producto
 router.get('/:id', productsController.detail);
 
 //Delete
-router.delete('/:id', productsController.destroy);
+router.delete('/:id', adminRoutes, productsController.destroy);
 
 module.exports = router;

@@ -12,6 +12,7 @@
                 <div class="row">
                     <div class="col-12">
                         <h2 class="products-title"><i class="fas fa-moon"></i> Formulario de creación de productos</h2>
+                        <% locals.errors %>
                     </div>
                 </div>
                 <div class="product-creation">
@@ -19,13 +20,22 @@
                         <div class="row product-detail">
                             <div class="detail-create">
                                 <label for="name" class="form-label">Nombre del producto:</label>
-                                <input type="text" id="name" name="name" placeholder="Ej: Zapatillas Reebok" class="form-input">
+                                <input type="text" id="name" name="name" placeholder="Ej: Zapatillas Reebok" class="form-input <%=locals.errors && errors.name ? ' is-danger' : ' ' %>" value="<%=locals.products ? products.name: ' ' %> ">
                             </div>
+                            <p class="feedback<%=locals.errors && errors.name ? ' is-danger' : ' '  %>">
+                                <%=locals.errors && errors.name ? errors.name.msg: ' ' %>
+                            </p>
+
                             <hr>
                             <div class="detail-create">
                                 <label for="price" class="form-label">Precio del producto:</label>
-                                <input type="text" id="price" name="price" placeholder="Ej: 5678" class="form-input">
+                                <input type="text" id="price" name="price" placeholder="Ej: 5678" class="form-input <%=locals.errors && errors.price ? ' is-danger' : ' ' %>" value="<%=locals.products ? products.price: ' ' %> ">
+
                             </div>
+                            <p class="feedback<%=locals.errors && errors.price ? ' is-danger' : ' '  %>">
+                                <%=locals.errors && errors.price ? errors.price.msg: ' ' %>
+                            </p>
+
                             <hr>
                             <!-- <div class="detail-create">
                                 <label for="discount" class="form-label">Descuento:</label>
@@ -33,14 +43,17 @@
                             </div>-->
                             <div class="detail-create">
                                 <label for="category" class="form-label">Categoría:</label>
-                                <select name="category" id="category" class="form-input">
+                                <select name="category" id="category" class="form-input <%=locals.errors && errors.category ? ' is-danger' : ' ' %>">
 							<option value="">Elegí</option>
 							<option value="indumentaria">Indumentaria</option>
                             <option value="accesorios">Accesorios</option>
                             <option value="bijouterie">Bijouterie</option>
                             <option value="home">Hogar</option>
-						</select>
+                        </select>
                             </div>
+                            <p class="feedback<%=locals.errors && errors.category ? ' is-danger' : ' '  %>">
+                                <%=locals.errors && errors.category ? errors.category.msg: ' ' %>
+                            </p>
                             <hr>
                             <div class="detail-create">
                                 <label for="size">Tamaño</label>
@@ -57,14 +70,20 @@
                             <hr>
                             <div class="detail-create">
                                 <label for="description" class="form-label">Descripción:</label>
-                                <textarea name="description" id="description" class="form-input"></textarea>
+                                <textarea name="description" id="description" class="form-input <%=locals.errors && errors.description ? ' is-danger' : ' ' %>"><%=locals.products ? products.description: ' ' %></textarea>
                             </div>
+                            <p class="feedback <%=locals.errors && errors.description ? ' is-danger' : ' ' %>">
+                                <%=locals.errors && errors.description ? errors.description.msg : ' ' %>
+                            </p>
                             <hr>
                             <div class="detail-create">
                                 <label for="image">Imagen</label>
                                 <input type="file" name="image">
 
                             </div>
+                            <p class="feedback <%=locals.errors && errors.image ? ' is-danger' : ' ' %>">
+                                <%=locals.errors && errors.image ? errors.image.msg : ' ' %>
+                            </p>
                             <hr>
                             <div class="creation-submit">
                                 <button type="submit">Guardar producto</button>

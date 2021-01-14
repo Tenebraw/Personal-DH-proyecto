@@ -2,7 +2,10 @@ const fs = require('fs');
 const path = require('path');
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-const productoModelo = require('../database/productModel.js');
+//const productoModelo = require('../database/productModel.js');
+const jsonTable = require('../database/jsonTable');
+const productoModelo = jsonTable('productsDataBase');
+const { validationResult } = require('express-validator');
 
 
 module.exports = {
@@ -27,21 +30,27 @@ module.exports = {
     },
 
     store: (req, res) => {
-        let miMax = productoModelo.lastID();
-        let newProduct = {
-            id: miMax,
-            name: req.body.name,
-            price: req.body.price,
-            category: req.body.category,
-            size: req.body.size,
-            description: req.body.description,
-            image: null
+
+        let errors = validationResult(req);
+        if (errors.isEmpty()) {
+            let miMax = productoModelo.lastID();
+            let newProduct = {
+                id: miMax,
+                name: req.body.name,
+                price: req.body.price,
+                category: req.body.category,
+                size: req.body.size,
+                description: req.body.description,
+                image: null
+            }
+            if (req.file) {
+                newProduct.image = req.file.filename;
+            }
+            productoModelo.create(newProduct);
+            res.redirect(`/products/${miMax}`);
+        } else {
+            res.render('products/product-create-form', { errors: errors.mapped(), products: req.body });
         }
-        if (req.file) {
-            newProduct.image = req.file.filename;
-        }
-        productoModelo.create(newProduct);
-        res.redirect(`/products/${miMax}`);
 
     },
 

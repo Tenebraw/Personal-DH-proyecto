@@ -7,7 +7,9 @@
             <main>
                 <div class="main-container-product">
                     <div class="main-product">
+
                         <img src="../images/products/<%=product.category%>/<%=product.image %>">
+
                     </div>
                     <div class="details-products">
                         <h3>
@@ -23,6 +25,8 @@
                         <label for="cantidad">Cantidad:</label>
                         <input type="number" id="cantidad" min="1" max="10">
                         <button>Agregar al carrito</button>
+
+
                         <div class="detail-editanddelete">
                             <a href="/products/<%=product.id%>/edit ">Editar</a>
                             <form action="/products/<%=product && product.id%>?_method=DELETE" method="POST">

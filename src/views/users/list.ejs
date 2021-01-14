@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head');%>
+
+    <body>
+        <%- include('../partials/header');%>
+
+            <main>
+                <div class="list-usercontainer">
+                    <div class="login-titles">
+                        <h2>Lista de usuarios registrados:</h2>
+                    </div>
+                    <div class="list-container">
+                        <% for(let i = 0;i<users.length;i++) { %>
+                            <% //if(users[i].category =="indumentaria") {%>
+
+                                <section>
+                                    <a href="/users/<%= users[i].id  %> ">
+                                        <span class="list-details"><%=users[i].first_name%></span>
+                                        <span class="list-details"><%=users[i].last_name%></span>
+                                        <span class="list-details"> ~ </span>
+                                        <span class="list-details"><%=users[i].email%></span>
+                                    </a>
+                                </section>
+
+                                <% // } %>
+                                    <%  } %>
+
+
+                    </div>
+
+
+                </div>
+            </main>
+            <%- include('../partials/footer'); %>
+                <script src="../js/menu.js"></script>
+                <script src="../js/login.js"></script>
+    </body>
+
+</html>
