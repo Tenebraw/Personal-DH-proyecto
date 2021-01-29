@@ -4,198 +4,319 @@
 
     <body>
         <%- include('../partials/header');%>
-
             <main>
-                <div class="slideshow-container">
+                <!-- Fisher–Yates Shuffle - Por que? Quiero que cada vez que se cargue la pagina el orden de los productos sea aleatorio-->
+                <% 
+                Array.prototype.shuffle = function() {
+    let i = this.length,
+        j, temp;
+    while (--i > 0) {
+        j = Math.floor(Math.random() * (i + 1));
+        temp = this[j];
+        this[j] = this[i];
+        this[i] = temp;
+    }
+    return this;
+}                                 
+                    %>
 
-                    <div class="mySlides fade">
+                    <!--Slide Banner-->
 
-                        <img src="../images/a1.png" style="width:100%">
-
+                    <div class="slideshow-container">
+                        <div class="mySlides fade">
+                            <a class="women" href="/products/women">
+                                <p>Mujeres</p>
+                            </a>
+                            <a class="men" href="/products/men">
+                                <p>Hombres</p>
+                            </a>
+                            <p class="animate_legend">Gótica, Post-apocalíptica, Steampunk, Punk.</p>
+                            <p class="animate_legendplus">Moda alternativa</p>
+                            <img src="../images/a1.jpg" style="width:100%">
+                        </div>
+                        <div class="mySlides fade">
+                            <a class="indumentaria" href="/products/indumentaria">
+                                <p>Indumentaria</p>
+                            </a>
+                            <a class="accesorios" href="/products/accesorios">
+                                <p>Accesorios</p>
+                            </a>
+                            <a class="bijouterie" href="/products/bijouterie">
+                                <p>Bijouterie</p>
+                            </a>
+                            <a class="hogar" href="/products/home">
+                                <p>Hogar</p>
+                            </a>
+                            <p class="animate_legend_second">Envio gratis en todos los pedidos superiores a $1.000.</p>
+                            <img src="../images/a2.jpg" style="width:100%">
+                        </div>
+                        <div class="mySlides fade">
+                            <a class="indumentaria" href="/products/bijouterie">
+                                <p>Destacados</p>
+                            </a>
+                            <a class="accesorios" href="/products/bijouterie">
+                                <p>Ofertas</p>
+                            </a>
+                            <p class="animate_legend_second">Hasta 30% de descuento.</p>
+                            <img src="../images/a3.jpg" style="width:100%">
+                        </div>
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    </div>
+                    <div style="text-align:center">
+                        <span class="dot" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                        <span class="dot" onclick="currentSlide(3)"></span>
+                    </div>
+                    <div class="interludio-high">
+                        <p>Nuestro catalogo...</p>
+                        <div class="interludio-subcontainer">
+                            <a href="#" id="destacados-show">
+                                <p>Destacados</p>
+                            </a>
+                            <a href="#" id="ofertas-show">
+                                <p>Ofertas</p>
+                            </a>
+                        </div>
                     </div>
 
-                    <div class="mySlides fade">
+                    <!--Destacados-->
 
-                        <img src="../images/a2.jpg" style="width:100%">
-
-                    </div>
-                    <div class="mySlides fade">
-
-                        <img src="../images/a3.jpg" style="width:100%">
-
-                    </div>
-
-                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                </div>
-                <div style="text-align:center">
-                    <span class="dot" onclick="currentSlide(1)"></span>
-                    <span class="dot" onclick="currentSlide(2)"></span>
-                    <span class="dot" onclick="currentSlide(3)"></span>
-                </div>
-                <div class="interludio">
-                    <p>Nuestros productos</p>
-
-                </div>
-                <section>
-                    <div class="product-clothes">
-                        <div class="barr">
-                            <div class="stable">
-                                <span>Indumentaria</span>
+                    <section id="destacado">
+                        <div class="product-destacados">
+                            <div class="barr">
+                                <div class="stable">
+                                    <span>Destacados</span>
+                                </div>
+                                <div class="moving">
+                                    <span>
+                                    <p>Lo mas destacado.</p></span>
+                                </div>
                             </div>
-                            <div class="moving">
-                                <span>
+                            <div class="destacados-container">
+                                <% let randomdestacados = products.shuffle()%>
+                                    <% for(let i = 0;i<randomdestacados.length;i++) { %>
+                                        <% if(randomdestacados[i].new ==true) {%>
+                                            <a href="/products/<%= randomdestacados[i].id  %> ">
+                                                <article class="mydestacadosSlides fade">
+                                                    <div id=diamond-shield>
+                                                        <span class="novedad">Novedad</span>
+                                                    </div>
+                                                    <img src="/images/products/<%=randomdestacados[i].category%>/<%= randomdestacados[i].image  %> ">
+                                                    <span class="clothes-detail"><%=randomdestacados[i].name%></span>
+                                                    <span class="clothes-price"><%=randomdestacados[i].price%></span>
+                                                    <button class="clothesbutton">Agregar al carrito</button>
+                                                </article>
+                                            </a>
+                                            <%  } %>
+                                                <% } %>
+                                                    <a class="prev" onclick="destacadosplusSlides(-1)">&#10094;</a>
+                                                    <a class="next" onclick="destacadosplusSlides(1)">&#10095;</a>
+                            </div>
+                        </div>
+                        <div class="interludio">
+                        </div>
+                    </section>
+
+                    <!--Ofertas-->
+
+                    <section id="ofertas">
+                        <div class="product-sale">
+                            <div class="barr">
+                                <div class="stable">
+                                    <span>Ofertas</span>
+                                </div>
+                                <div class="moving">
+                                    <span>
+                                    <p><b>Descuentos especiales. 30% OFF!!!</b></p></span>
+                                </div>
+                            </div>
+                            <div class="sale-container">
+                                <% let randomsale = products.shuffle()%>
+                                    <% for(let i = 0;i<randomsale.length;i++) { %>
+                                        <% if(randomsale[i].sale ==true) {%>
+                                            <a href="/products/<%= randomsale[i].id  %> ">
+                                                <article class="mysaleSlides fade">
+                                                    <div id=diamond-shield>
+                                                        <span class="novedad">Oferta!</span>
+                                                    </div>
+                                                    <img src="/images/products/<%=randomsale[i].category%>/<%= randomsale[i].image  %> ">
+                                                    <span class="clothes-detail"><%=randomsale[i].name%></span>
+                                                    <span class="clothes-price"><%=randomsale[i].price%></span>
+                                                    <button class="clothesbutton">Agregar al carrito</button>
+                                                </article>
+                                            </a>
+                                            <%  } %>
+                                                <% } %>
+                                                    <a class="prev" onclick="saleplusSlides(-1)">&#10094;</a>
+                                                    <a class="next" onclick="saleplusSlides(1)">&#10095;</a>
+                            </div>
+                        </div>
+                        <div class="interludio">
+                        </div>
+                    </section>
+
+                    <!-- Indumentaria-->
+
+                    <section>
+                        <div class="product-clothes">
+                            <div class="barr">
+                                <div class="stable">
+                                    <span>Indumentaria</span>
+                                </div>
+                                <div class="moving">
+                                    <span>
                                     <p>Gótica, post-apocalíptica, punk, steampunk.</p></span>
+                                </div>
+                            </div>
+                            <div class="clothes-container">
+                                <% let randomclothes = products.shuffle()%>
+                                    <% for(let i = 0;i<randomclothes.length;i++) { %>
+                                        <% if(randomclothes[i].category_id =="1") {%>
+                                            <a href="/products/<%= randomclothes[i].id  %> ">
+                                                <article class="myclothesSlides fade">
+                                                    <img src="/images/products/indumentaria/<%= randomclothes[i].image  %> ">
+                                                    <span class="clothes-detail"><%=randomclothes[i].name%></span>
+                                                    <span class="clothes-price"><%=randomclothes[i].price%></span>
+                                                    <button class="clothesbutton">Agregar al carrito</button>
+                                                </article>
+                                            </a>
+                                            <%  } %>
+                                                <% } %>
+                                                    <a class="prev" onclick="clothesplusSlides(-1)">&#10094;</a>
+                                                    <a class="next" onclick="clothesplusSlides(1)">&#10095;</a>
+                            </div>
+                            <a class="seemore" href="/products/indumentaria">
+                                <p>Ver más</p>
+                            </a>
+                        </div>
+                        <div class="interludio">
+                        </div>
+                    </section>
+
+                    <!--Accesorios-->
+
+                    <section>
+                        <div class="product-accesory">
+                            <div class="barr">
+                                <div class="stable">
+                                    <span>Accesorios</span>
+                                </div>
+                                <div class="moving">
+                                    <span><p>Mochilas, cinturones, guantes, sombreros, máscaras.</p></span>
+                                </div>
+                            </div>
+                            <div class="accesory-container">
+                                <% let randomaccesory = products.shuffle()%>
+                                    <% for(let j = 0;j<randomaccesory.length;j++) { %>
+                                        <% if(randomaccesory[j].category_id =="2") {%>
+                                            <a href="/products/<%= randomaccesory[j].id  %> ">
+                                                <article class="myAccesorySlides fade">
+                                                    <img src="../images/products/accesorios/<%= randomaccesory[j].image %> ">
+                                                    <span class="accesory-detail"><%= randomaccesory[j].name  %> </span>
+                                                    <span class="accesory-price"><%= randomaccesory[j].price%> </span>
+                                                    <button class="accesorybutton">Agregar al carrito</button>
+                                                </article>
+                                            </a>
+                                            <%  } %>
+                                                <% } %>
+                                                    <a class="prev" onclick="accesoryplusSlides(-1)">&#10094;</a>
+                                                    <a class="next" onclick="accesoryplusSlides(1)">&#10095;</a>
+                            </div>
+                            <a class="seemore" href="/products/accesorios">
+                                <p>Ver más</p>
+                            </a>
+                        </div>
+                        <div class="interludio">
+                            <div class="legend">
+                                <h2>Occult Luxury</h2>
+                                <p>Nosotros...</p>
+                                <div class="banner-publicity">
+                                    <span>Compra Segura<i class="fas fa-lock iconbanner"></i></span>
+                                    <span>Envío rapido<i class="fas fa-truck iconbanner"></i></span>
+                                    <span>6 cuotas sin interes</span>
+                                    <img src="../images/tarjetas.png">
+                                </div>
+                            </div>
+                            <div class="imag-banner">
+                                <img src="../images/banner.jpg">
                             </div>
                         </div>
-                        <!---->
-                        <div class="clothes-container">
-                            <% for(let i = 0;i<products.length;i++) { %>
-                                <% if(products[i].category =="indumentaria") {%>
-                                    <a href="/products/<%= products[i].id  %> ">
-                                        <article class="myclothesSlides fade">
-                                            <img src="/images/products/indumentaria/<%= products[i].image  %> ">
-                                            <span class="clothes-detail"><%=products[i].name%></span>
-                                            <span class="clothes-price"><%=products[i].price%></span>
+                    </section>
 
-                                            <button class="clothesbutton">Agregar al carrito</button>
-                                        </article>
-                                    </a>
-                                    <%  } %>
-                                        <% } %>
-                                            <a class="prev" onclick="clothesplusSlides(-1)">&#10094;</a>
-                                            <a class="next" onclick="clothesplusSlides(1)">&#10095;</a>
+                    <!--Bijouterie-->
 
-                        </div>
-                        <a class="seemore" href="/products/indumentaria">
-                            <p>Ver más</p>
-                        </a>
-                    </div>
-                    <div class="interludio">
-                    </div>
-                </section>
-                <section>
-                    <div class="product-accesory">
-                        <div class="barr">
-                            <div class="stable">
-                                <span>Accesorios</span>
+                    <section>
+                        <div class="product-bijoux">
+                            <div class="barr">
+                                <div class="stable">
+                                    <span>Bijouterie</span>
+                                </div>
+                                <div class="moving">
+                                    <span><p>Anillos, aros, brazaletes, collares.</p></span>
+                                </div>
                             </div>
-                            <div class="moving">
-                                <span><p>Mochilas, cinturones, guantes, sombreros, máscaras.</p></span>
+                            <div class="bijoux-container">
+                                <% let randombijoux = products.shuffle()%>
+                                    <% for(let k = 0;k<randombijoux.length;k++) { %>
+                                        <% if(randombijoux[k].category_id =="3") {%>
+                                            <a href="/products/<%=randombijoux[k].id %>">
+                                                <article class="myBijouxSlides fade">
+                                                    <img src="../images/products/bijouterie/<%=randombijoux[k].image %> ">
+                                                    <span class="bijoux-detail"><%= randombijoux[k].name %>  </span>
+                                                    <span class="bijoux-price"><%=randombijoux[k].price %></span>
+                                                    <button class="bijouxbutton">Agregar al carrito</button>
+                                                </article>
+                                            </a>
+                                            <% } %>
+                                                <% } %>
+                                                    <a class="prev" onclick="bijouxplusSlides(-1)">&#10094;</a>
+                                                    <a class="next" onclick="bijouxplusSlides(1)">&#10095;</a>
                             </div>
+                            <a class="seemore" href="/products/bijouterie">
+                                <p>Ver más</p>
+                            </a>
                         </div>
-                        <div class="accesory-container">
-                            <% for(let j = 0;j<products.length;j++) { %>
-                                <% if(products[j].category =="accesorios") {%>
-                                    <a href="/products/<%= products[j].id  %> ">
-                                        <article class="myAccesorySlides fade">
-                                            <img src="../images/products/accesorios/<%= products[j].image %> ">
-                                            <span class="accesory-detail"><%= products[j].name  %> </span>
-                                            <span class="accesory-price"><%= products[j].price%> </span>
-
-                                            <button class="accesorybutton">Agregar al carrito</button>
-                                        </article>
-                                    </a>
-                                    <%  } %>
-                                        <% } %>
-                                            <a class="prev" onclick="accesoryplusSlides(-1)">&#10094;</a>
-                                            <a class="next" onclick="accesoryplusSlides(1)">&#10095;</a>
+                        <div class="interludio">
                         </div>
-                        <a class="seemore" href="/products/accesorios">
-                            <p>Ver más</p>
-                        </a>
-                    </div>
+                    </section>
 
-                    <div class="interludio">
-                        <div class="legend">
-                            <h2>Occult Luxury</h2>
-                            <p>Nosotros...</p>
-                            <div class="banner-publicity">
-                                <span>Compra Segura<i class="fas fa-lock iconbanner"></i></span>
-                                <span>Envío rapido<i class="fas fa-truck iconbanner"></i></span>
-                                <span>6 cuotas sin interes</span>
-                                <img src="../images/tarjetas.png">
+                    <!--Hogar-->
+
+                    <section>
+                        <div class="product-home">
+                            <div class="barr">
+                                <div class="stable">
+                                    <span>Hogar</span>
+                                </div>
+                                <div class="moving">
+                                    <span><p>Tapices, atrapasueños, decorativos.</p></span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="imag-banner">
-                            <img src="../images/banner.jpg">
-
-                        </div>
-                    </div>
-                </section>
-                <section>
-                    <div class="product-bijoux">
-                        <div class="barr">
-                            <div class="stable">
-                                <span>Bijouterie</span>
+                            <div class="home-container">
+                                <% let randomhome = products.shuffle()%>
+                                    <% for(let l = 0;l<randomhome.length;l++) { %>
+                                        <% if(randomhome[l].category_id =="4") {%>
+                                            <a href="/products/<%= randomhome[l].id %> ">
+                                                <article class="myHomeSlides fade">
+                                                    <img src="../images/products/home/<%= randomhome[l].image %> ">
+                                                    <span class="home-detail"><%=randomhome[l].name %> </span>
+                                                    <span class="home-price"><%=randomhome[l].price%> </span>
+                                                    <button class="homebutton">Agregar al carrito</button>
+                                                </article>
+                                            </a>
+                                            <% } %>
+                                                <% } %>
+                                                    <a class="prev" onclick="homeplusSlides(-1)">&#10094;</a>
+                                                    <a class="next" onclick="homeplusSlides(1)">&#10095;</a>
                             </div>
-                            <div class="moving">
-                                <span><p>Anillos, aros, brazaletes, collares.</p></span>
-                            </div>
+                            <a class="seemore" href="/products/home">
+                                <p>Ver más</p>
+                            </a>
                         </div>
-                        <div class="bijoux-container">
-                            <% for(let k = 0;k<products.length;k++) { %>
-                                <% if(products[k].category =="bijouterie") {%>
-                                    <a href="/products/<%=products[k].id %>">
-                                        <article class="myBijouxSlides fade">
-                                            <img src="../images/products/bijouterie/<%=products[k].image %> ">
-                                            <span class="bijoux-detail"><%= products[k].name %>  </span>
-                                            <span class="bijoux-price"><%=products[k].price %></span>
-
-
-                                            <button class="bijouxbutton">Agregar al carrito</button>
-                                        </article>
-                                    </a>
-                                    <% } %>
-                                        <% } %>
-                                            <a class="prev" onclick="bijouxplusSlides(-1)">&#10094;</a>
-                                            <a class="next" onclick="bijouxplusSlides(1)">&#10095;</a>
+                        <div class="interludio">
                         </div>
-                        <a class="seemore" href="/products/bijouterie">
-                            <p>Ver más</p>
-                        </a>
-                    </div>
-                    <div class="interludio">
-
-                    </div>
-                </section>
-
-                <section>
-                    <div class="product-home">
-                        <div class="barr">
-                            <div class="stable">
-                                <span>Hogar</span>
-                            </div>
-                            <div class="moving">
-                                <span><p>Tapices, atrapasueños, decorativos.</p></span>
-                            </div>
-                        </div>
-                        <div class="home-container">
-                            <% for(let l = 0;l<products.length;l++) { %>
-                                <% if(products[l].category =="home") {%>
-                                    <a href="/products/<%= products[l].id %> ">
-                                        <article class="myHomeSlides fade">
-                                            <img src="../images/products/home/<%= products[l].image %> ">
-                                            <span class="home-detail"><%= products[l].name %> </span>
-                                            <span class="home-price"><%=products[l].price%> </span>
-
-                                            <button class="homebutton">Agregar al carrito</button>
-                                        </article>
-                                    </a>
-                                    <% } %>
-                                        <% } %>
-                                            <a class="prev" onclick="homeplusSlides(-1)">&#10094;</a>
-                                            <a class="next" onclick="homeplusSlides(1)">&#10095;</a>
-                        </div>
-                        <a class="seemore" href="/products/home">
-                            <p>Ver más</p>
-                        </a>
-                    </div>
-                    <div class="interludio">
-
-                    </div>
-
-                </section>
+                    </section>
 
 
             </main>

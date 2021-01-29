@@ -5,6 +5,11 @@
     <body>
         <%- include('../partials/header');%>
             <main>
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li>Bijouterie</li>
+
+                </ul>
                 <section>
                     <div class="product-bijoux">
                         <div class="barr">
@@ -17,7 +22,7 @@
                         </div>
                         <div class="bijoux-container">
                             <% for(let i = 0;i<products.length;i++) { %>
-                                <% if(products[i].category =="bijouterie") {%>
+                                <% if(products[i].category_id =="3") {%>
                                     <article class="myBijouxSlides fade">
                                         <a href="/products/<%= products[i].id  %> ">
                                 <img src="/images/products/bijouterie/<%= products[i].image %> ">

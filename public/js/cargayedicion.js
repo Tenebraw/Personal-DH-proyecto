@@ -36,9 +36,17 @@ function DeleteProducto() {
     $optionDelete.classList.toggle('mostrarmenu');
     $optionDelete.classList.toggle('escondermenu');
     $seleccionarMenu.classList.toggle('escondermenu');
-
-
-
-
 }
 $menuDelete.addEventListener("click", DeleteProducto);
+
+
+function newSelected() {
+    const $check = document.querySelector('#category').value;
+    console.log('hola');
+    const $check2 = document.querySelector('#checkbox2');
+    if ($check == "indumentaria") {
+        $check2.style.display = 'block';
+
+    }
+
+}

@@ -13,14 +13,14 @@ module.exports = {
         check('price')
         .notEmpty().withMessage('Debes completar el campo precio').bail()
         .isLength({ min: 2 }).withMessage('El precio debe ser de dos digitos al menos')
-        .isNumeric().withMessage('Debe ingresar solo numeros'),
+        .trim().isNumeric().withMessage('Debe ingresar solo numeros'),
 
         check('category')
         .notEmpty().withMessage('Debes elegir al menos una categoria').bail(),
 
-        check('image')
+        check('imagename')
         .custom((value, { req }) => {
-            if (!req.file) throw new Error("Una imagen es requerida");
+            if (req.files.length == 0) throw new Error("Al menos una imagen es requerida");
             return true;
         }),
 
@@ -43,9 +43,9 @@ module.exports = {
         check('category')
         .notEmpty().withMessage('Debes elegir al menos una categoria').bail(),
 
-        check('image')
+        check('imagename')
         .custom((value, { req }) => {
-            if (!req.file) throw new Error("Una imagen es requerida");
+            if (req.files.length == 0) throw new Error("Una imagen es requerida");
             return true;
         }),
     ],

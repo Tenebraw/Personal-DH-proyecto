@@ -41,6 +41,8 @@ Durante el proceso de investigacion busque referentes con tematicas afines, algu
 - https://shopdark.com/products/dream-catcher-catchers-hanging-diy-decoration-nordic-decoration-home-girls-room-nursery-kids-decor-dreamcatcher-children-room?variant=31543540482095
 https://www.tragicbeautiful.com/
 https://www.fantasmagoria.eu/
+https://gothicromance.co.uk/
+https://www.ikrush.com/
 
 ## BREAD (Browse, Read, Edit, Add, Delete)
 ## Métodos HTTP

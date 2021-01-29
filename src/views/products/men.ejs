@@ -7,25 +7,26 @@
             <main>
                 <ul class="breadcrumb">
                     <li><a href="/">Home</a></li>
-                    <li>Hogar</li>
+                    <li><a href="/products/indumentaria">Indumentaria</a></li>
+                    <li>Hombres</li>
 
                 </ul>
                 <section>
                     <div class="product-home">
                         <div class="barr">
                             <div class="stable">
-                                <span>Hogar</span>
+                                <span>Hombres</span>
                             </div>
                             <div class="moving">
-                                <span><p>Tapices, atrapasueños, decorativos.</p></span>
+                                <span><p>Solo ellos.</p></span>
                             </div>
                         </div>
                         <div class="home-container">
                             <% for(let i = 0;i<products.length;i++) { %>
-                                <% if(products[i].category_id =="4") {%>
+                                <% if(products[i].gender =="Male") {%>
                                     <article class="myHomeSlides fade">
                                         <a href="/products/<%= products[i].id  %>">
-                                <img src="/images/products/home/<%= products[i].image  %> ">
+                                <img src="/images/products/indumentaria/<%= products[i].image  %> ">
                                 <span class="home-detail"><%= products[i].name %> </span>
                                 <span class="home-price"><%= products[i].price %> </span>
                            

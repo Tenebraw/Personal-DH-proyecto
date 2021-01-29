@@ -5,6 +5,11 @@
     <body>
         <%- include('../partials/header');%>
             <main>
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li>Accesorios</li>
+
+                </ul>
                 <section>
                     <div class="product-accesory">
                         <div class="barr">
@@ -17,7 +22,7 @@
                         </div>
                         <div class="accesory-container">
                             <% for(let i = 0;i<products.length;i++) { %>
-                                <% if(products[i].category =="accesorios") {%>
+                                <% if(products[i].category_id =="2") {%>
                                     <article class="myAccesorySlides fade">
                                         <a href="/products/<%= products[i].id  %> ">
                                             <img src="/images/products/accesorios/<%=products[i].image%>">

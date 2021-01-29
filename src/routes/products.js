@@ -32,19 +32,28 @@ router.get('/bijouterie', productsController.bijouterie);
 
 router.get('/home', productsController.home);
 
+router.get('/women', productsController.women);
+
+router.get('/men', productsController.men);
+
 //Carrito
 router.get('/cart', productsController.cart);
 
 //Creacion y guardado un producto
 router.get('/create', adminRoutes, productsController.create);
-router.post('/', adminRoutes, upload.single('image'), validate.createForm, productsController.store);
+//router.post('/', adminRoutes, upload.single('image'), validate.createForm, productsController.store);
+//router.post('/', adminRoutes, upload.array('imagename', [5]), validate.createForm, productsController.store);
+router.post('/', adminRoutes, upload.array('imagename', [5]), validate.createForm, productsController.store);
+//router.post('/', adminRoutes, upload.array('imageback', [5]), validate.createForm, productsController.store);
+
 
 //Editar un producto y actualizacion
 router.get('/:id/edit', adminRoutes, productsController.edit);
-router.put('/:id', adminRoutes, upload.single('image'), productsController.update);
+router.put('/:id', adminRoutes, upload.array('imagename', [5]), validate.updateForm, productsController.update);
 
 //Detalle de cada producto
 router.get('/:id', productsController.detail);
+router.post('/:id', productsController.addcart);
 
 //Delete
 router.delete('/:id', adminRoutes, productsController.destroy);

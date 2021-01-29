@@ -45,26 +45,36 @@
                                 <label for="category" class="form-label">Categoría:</label>
                                 <select name="category" id="category" class="form-input <%=locals.errors && errors.category ? ' is-danger' : ' ' %>">
 							<option value="">Elegí</option>
-							<option value="indumentaria">Indumentaria</option>
-                            <option value="accesorios">Accesorios</option>
-                            <option value="bijouterie">Bijouterie</option>
-                            <option value="home">Hogar</option>
+							<option value="1">Indumentaria</option>
+                            <option value="2">Accesorios</option>
+                            <option value="3">Bijouterie</option>
+                            <option value="4">Hogar</option>
                         </select>
                             </div>
                             <p class="feedback<%=locals.errors && errors.category ? ' is-danger' : ' '  %>">
                                 <%=locals.errors && errors.category ? errors.category.msg: ' ' %>
                             </p>
                             <hr>
-                            <div class="detail-create">
+                            <div class="detail-create" id="checkbox2">
                                 <label for="size">Tamaño</label>
                                 <select name="size" id="size">
                                     <option value="">Elegi</option>
-                                    <option value="xs">XS</option>
-                                    <option value="s">S</option>
-                                    <option value="m">M</option>
-                                    <option value="l">L</option>
-                                    <option value="xl">XL</option>
-                                    <option value="2xl">2XL</option>
+                                    <option value="1">XS</option>
+                                    <option value="2">S</option>
+                                    <option value="3">M</option>
+                                    <option value="4">L</option>
+                                    <option value="5">XL</option>
+                                    <option value="6">2XL</option>
+                                </select>
+                            </div>
+                            <hr>
+                            <div class="detail-create" id="checkbox3">
+                                <label for="size">Genero</label>
+                                <select name="gender" id="size">
+                                    <option value="">Elegi</option>
+                                    <option value="Male">Masculino</option>
+                                    <option value="Female">Female</option>
+                                  >
                                 </select>
                             </div>
                             <hr>
@@ -77,12 +87,15 @@
                             </p>
                             <hr>
                             <div class="detail-create">
-                                <label for="image">Imagen</label>
-                                <input type="file" name="image">
-
+                                <label for="imagename">Imagen (Entre 1 y 2 imagenes)</label>
+                                <input type="file" name="imagename" multiple>
                             </div>
-                            <p class="feedback <%=locals.errors && errors.image ? ' is-danger' : ' ' %>">
-                                <%=locals.errors && errors.image ? errors.image.msg : ' ' %>
+                            <!--<div class="detail-create">
+                                <label for="imageback">Imagen (seleccione otra imagen)</label>
+                                <input type="file" name="imageback">
+                            </div>-->
+                            <p class="feedback <%=locals.errors && errors.imagename ? ' is-danger' : ' ' %>">
+                                <%=locals.errors && errors.imagename ? errors.imagename.msg : ' ' %>
                             </p>
                             <hr>
                             <div class="creation-submit">
@@ -97,6 +110,7 @@
 
             <!-- footer -->
             <%- include('../partials/footer') %>
+                <script src="../../js/cargayedicion.js"></script>
                 <!-- /footer -->
     </body>
 

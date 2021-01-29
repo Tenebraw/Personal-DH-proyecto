@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-<%- include('../partials/head', {title: 'Formulario de creación'}) %>
+<%- include('../partials/head', {title: 'Formulario de edición'}) %>
 
     <body>
         <!-- Header -->
@@ -36,11 +36,10 @@
                             <div class="detail-create">
                                 <label for="category" class="form-label">Categoría:</label>
                                 <select name="category" id="category" class="form-input">
-                            <option value="<%=product && product.category%>"><%=product && product.category%></option>
-							<option value="indumentaria">Indumentaria</option>
-                            <option value="accesorios">Accesorios</option>
-                            <option value="bijouterie">Bijouterie</option>
-                            <option value="home">Hogar</option>
+                                    <% categoria.forEach(category => { %>
+                                        <option value="<%=category.id%>"><%=category.name%></option>
+                                        
+                                  <%  }); %> 
 						</select>
                             </div>
                             <hr>
@@ -66,8 +65,8 @@
                                 <img src="/images/products/<%=product.category%>/<%=product &&product.image %>" class="image-edit" alt="">
                             </div>
                             <div class="detail-create">
-                                <label for="image">Seleccionar una nueva imagen</label>
-                                <input type="file" name="image">
+                                <label for="imagename">Seleccionar una nueva imagen</label>
+                                <input type="file" name="imagename" multiple>
 
                             </div>
                             <hr>

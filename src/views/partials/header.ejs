@@ -43,7 +43,7 @@
         <div class="slide-container">
 
             <div class="subnav">
-                <form action="/search" method="GET" class="search-input" enctype="multipart/form-data">
+                <form action="/search" method="GET" class="search-input" enctype="multipart/form-data" id="search-input">
                     <Label>Buscar</Label>
                     <input type="text" id="search" name="keywords" placeholder="Buscar productos...">
                 </form>
@@ -76,7 +76,18 @@
 
         </div>
 
+
     </nav>
+    <div class="subnavtwo">
+        <div class="searcher" id="search-full">
+
+            <a href="#" class="search-a"><i class="fas fa-search"></i></a>
+
+        </div>
+        <form action="/search" method="GET" class="search-input2" enctype="multipart/form-data" id="search-input2">
+            <input type="text" id="search" name="keywords" placeholder="Buscar productos...">
+        </form>
+    </div>
     <nav class="fullscreen-menu">
         <a href="/products/indumentaria">Indumentaria</a>
         <a href="/products/accesorios">Accesorios</a>

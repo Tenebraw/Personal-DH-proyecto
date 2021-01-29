@@ -3,6 +3,7 @@ const userModel = jsonTable('usersDataBase');
 const userTokensModel = jsonTable('usersTokens');
 
 module.exports = (req, res, next) => {
+
     //Si hay usuario en sesion
     if (req.session.user) { // Si existe un suario en sesion, asi como esta pasaselo a la vista.
         //Se lo paso a la vista

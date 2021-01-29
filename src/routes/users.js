@@ -5,8 +5,6 @@ const adminRoutes = require('../middlewares/adminRoutes');
 const userRoutes = require('../middlewares/userRoutes');
 
 
-
-
 //const path = require('path');
 /*const multer = require('multer');
 const storage = multer.diskStorage({
@@ -43,6 +41,6 @@ router.post('/', validate.registerForm, usersController.storeUser);
 //Delete de usuario.
 router.delete('/:id', adminRoutes, usersController.destroy);
 
-router.get('/:id', userRoutes, usersController.profile);
+router.get('/:id', usersController.profile);
 
 module.exports = router;

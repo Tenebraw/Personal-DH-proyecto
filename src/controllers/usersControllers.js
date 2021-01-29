@@ -81,8 +81,15 @@ module.exports = {
     profile: (req, res) => {
 
         let busqueda = userModel.find(req.params.id);
-        /*Detalle de Productos*/
-        res.render('./users/profile', { user: busqueda });
+        // console.log(busqueda);
+        // res.send(req.session.user);
+        if (req.session.user.id == busqueda.id) {
+            res.render('./users/profile', { user: busqueda });
+        } else {
+            res.redirect('/');
+        }
+
+
     },
 
 

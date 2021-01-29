@@ -1,0 +1,1 @@
+Acá, en este directorio se guardaran (via multer) unicamente las indumentarias.

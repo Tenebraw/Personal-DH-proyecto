@@ -22,15 +22,15 @@
 
                         </p>
 
-                        <div class="detail-editanddelete">
-                            <a href="/">Ir al carrito de compras</a>
-                            <a href="/users/<%=user.id%>/edit ">Editar</a>
-                            <form action="/users/<%=user && user.id%>?_method=DELETE" method="POST">
-                                <button type="submit">Eliminar</button>
-                            </form>
-                        </div>
+
                     </div>
 
+                </div>
+                <div class="detail-editanddelete">
+                    <a href="/users/<%=user.id%>/edit ">Editar</a>
+                    <form action="/users/<%=user && user.id%>?_method=DELETE" method="POST">
+                        <button type="submit">Eliminar</button>
+                    </form>
                 </div>
 
             </main>
