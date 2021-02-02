@@ -94,17 +94,17 @@
                                 </div>
                             </div>
                             <div class="destacados-container">
-                                <% let randomdestacados = products.shuffle()%>
+                                <% let randomdestacados = images.shuffle()%>
                                     <% for(let i = 0;i<randomdestacados.length;i++) { %>
-                                        <% if(randomdestacados[i].new ==true) {%>
-                                            <a href="/products/<%= randomdestacados[i].id  %> ">
+                                        <% if(randomdestacados[i].product.new ==1) {%>
+                                            <a href="/products/<%= randomdestacados[i].product.id  %> ">
                                                 <article class="mydestacadosSlides fade">
                                                     <div id=diamond-shield>
                                                         <span class="novedad">Novedad</span>
                                                     </div>
-                                                    <img src="/images/products/<%=randomdestacados[i].category%>/<%= randomdestacados[i].image  %> ">
-                                                    <span class="clothes-detail"><%=randomdestacados[i].name%></span>
-                                                    <span class="clothes-price"><%=randomdestacados[i].price%></span>
+                                                    <img src="/images/products/<%=randomdestacados[i].product.category_id%>/<%=randomdestacados[i].imagename %> ">
+                                                    <span class="clothes-detail"><%=randomdestacados[i].product.name%></span>
+                                                    <span class="clothes-price"><%=randomdestacados[i].product.price%></span>
                                                     <button class="clothesbutton">Agregar al carrito</button>
                                                 </article>
                                             </a>
@@ -132,17 +132,17 @@
                                 </div>
                             </div>
                             <div class="sale-container">
-                                <% let randomsale = products.shuffle()%>
+                                <% let randomsale = images.shuffle()%>
                                     <% for(let i = 0;i<randomsale.length;i++) { %>
-                                        <% if(randomsale[i].sale ==true) {%>
-                                            <a href="/products/<%= randomsale[i].id  %> ">
+                                        <% if(randomsale[i].product.sale ==true) {%>
+                                            <a href="/products/<%= randomsale[i].product.id  %> ">
                                                 <article class="mysaleSlides fade">
                                                     <div id=diamond-shield>
                                                         <span class="novedad">Oferta!</span>
                                                     </div>
-                                                    <img src="/images/products/<%=randomsale[i].category%>/<%= randomsale[i].image  %> ">
-                                                    <span class="clothes-detail"><%=randomsale[i].name%></span>
-                                                    <span class="clothes-price"><%=randomsale[i].price%></span>
+                                                    <img src="/images/products/<%=randomsale[i].product.category_id%>/<%=randomsale[i].imagename %> ">
+                                                    <span class="clothes-detail"><%=randomsale[i].product.name%></span>
+                                                    <span class="clothes-price"><%=randomsale[i].product.price%></span>
                                                     <button class="clothesbutton">Agregar al carrito</button>
                                                 </article>
                                             </a>
@@ -170,21 +170,27 @@
                                 </div>
                             </div>
                             <div class="clothes-container">
-                                <% let randomclothes = products.shuffle()%>
-                                    <% for(let i = 0;i<randomclothes.length;i++) { %>
-                                        <% if(randomclothes[i].category_id =="1") {%>
-                                            <a href="/products/<%= randomclothes[i].id  %> ">
-                                                <article class="myclothesSlides fade">
-                                                    <img src="/images/products/indumentaria/<%= randomclothes[i].image  %> ">
-                                                    <span class="clothes-detail"><%=randomclothes[i].name%></span>
-                                                    <span class="clothes-price"><%=randomclothes[i].price%></span>
-                                                    <button class="clothesbutton">Agregar al carrito</button>
-                                                </article>
-                                            </a>
-                                            <%  } %>
-                                                <% } %>
-                                                    <a class="prev" onclick="clothesplusSlides(-1)">&#10094;</a>
-                                                    <a class="next" onclick="clothesplusSlides(1)">&#10095;</a>
+
+
+                                <%console.log(images[0].imagename)  %>
+                                    <%console.log(images[0].product.name)  %>
+
+                                        <% let randomclothes = images.shuffle()%>
+                                            <% for(let i = 0;i<randomclothes.length;i++) { %>
+                                                <% if(randomclothes[i].product.category_id =="1") {%>
+                                                    <a href="/products/<%= randomclothes[i].product.id  %> ">
+                                                        <article class="myclothesSlides fade">
+
+                                                            <img src="/images/products/1/<%=images[i].imagename%> ">
+                                                            <span class="clothes-detail"><%=randomclothes[i].product.name%></span>
+                                                            <span class="clothes-price"><%=randomclothes[i].product.price%></span>
+                                                            <button class="clothesbutton">Agregar al carrito</button>
+                                                        </article>
+                                                    </a>
+                                                    <%  } %>
+                                                        <% } %>
+                                                            <a class="prev" onclick="clothesplusSlides(-1)">&#10094;</a>
+                                                            <a class="next" onclick="clothesplusSlides(1)">&#10095;</a>
                             </div>
                             <a class="seemore" href="/products/indumentaria">
                                 <p>Ver más</p>
@@ -207,14 +213,14 @@
                                 </div>
                             </div>
                             <div class="accesory-container">
-                                <% let randomaccesory = products.shuffle()%>
+                                <% let randomaccesory =images.shuffle()%>
                                     <% for(let j = 0;j<randomaccesory.length;j++) { %>
-                                        <% if(randomaccesory[j].category_id =="2") {%>
-                                            <a href="/products/<%= randomaccesory[j].id  %> ">
+                                        <% if(randomaccesory[j].product.category_id =="2") {%>
+                                            <a href="/products/<%= randomaccesory[j].product.id  %> ">
                                                 <article class="myAccesorySlides fade">
-                                                    <img src="../images/products/accesorios/<%= randomaccesory[j].image %> ">
-                                                    <span class="accesory-detail"><%= randomaccesory[j].name  %> </span>
-                                                    <span class="accesory-price"><%= randomaccesory[j].price%> </span>
+                                                    <img src="../images/products/2/<%= randomaccesory[j].imagename %> ">
+                                                    <span class="accesory-detail"><%= randomaccesory[j].product.name  %> </span>
+                                                    <span class="accesory-price"><%= randomaccesory[j].product.price%> </span>
                                                     <button class="accesorybutton">Agregar al carrito</button>
                                                 </article>
                                             </a>
@@ -257,14 +263,14 @@
                                 </div>
                             </div>
                             <div class="bijoux-container">
-                                <% let randombijoux = products.shuffle()%>
+                                <% let randombijoux = images.shuffle()%>
                                     <% for(let k = 0;k<randombijoux.length;k++) { %>
-                                        <% if(randombijoux[k].category_id =="3") {%>
-                                            <a href="/products/<%=randombijoux[k].id %>">
+                                        <% if(randombijoux[k].product.category_id =="3") {%>
+                                            <a href="/products/<%=randombijoux[k].product.id %>">
                                                 <article class="myBijouxSlides fade">
-                                                    <img src="../images/products/bijouterie/<%=randombijoux[k].image %> ">
-                                                    <span class="bijoux-detail"><%= randombijoux[k].name %>  </span>
-                                                    <span class="bijoux-price"><%=randombijoux[k].price %></span>
+                                                    <img src="../images/products/3/<%=randombijoux[k].imagename %> ">
+                                                    <span class="bijoux-detail"><%= randombijoux[k].product.name %>  </span>
+                                                    <span class="bijoux-price"><%=randombijoux[k].product.price %></span>
                                                     <button class="bijouxbutton">Agregar al carrito</button>
                                                 </article>
                                             </a>
@@ -294,14 +300,14 @@
                                 </div>
                             </div>
                             <div class="home-container">
-                                <% let randomhome = products.shuffle()%>
+                                <% let randomhome = images.shuffle()%>
                                     <% for(let l = 0;l<randomhome.length;l++) { %>
-                                        <% if(randomhome[l].category_id =="4") {%>
-                                            <a href="/products/<%= randomhome[l].id %> ">
+                                        <% if(randomhome[l].product.category_id =="4") {%>
+                                            <a href="/products/<%= randomhome[l].product.id %> ">
                                                 <article class="myHomeSlides fade">
-                                                    <img src="../images/products/home/<%= randomhome[l].image %> ">
-                                                    <span class="home-detail"><%=randomhome[l].name %> </span>
-                                                    <span class="home-price"><%=randomhome[l].price%> </span>
+                                                    <img src="../images/products/4/<%= randomhome[l].imagename %> ">
+                                                    <span class="home-detail"><%=randomhome[l].product.name %> </span>
+                                                    <span class="home-price"><%=randomhome[l].product.price%> </span>
                                                     <button class="homebutton">Agregar al carrito</button>
                                                 </article>
                                             </a>

@@ -5,12 +5,11 @@
     <body>
         <%- include('../partials/header');%>
             <main>
+
                 <ul class="breadcrumb">
                     <li><a href="/">Home</a></li>
                     <li>Indumentaria</li>
-
                 </ul>
-
                 <section>
                     <div class="product-clothes">
                         <div class="barr">
@@ -24,16 +23,16 @@
                         <!---->
 
                         <div class="clothes-container">
+
                             <% for(let i = 0;i<products.length;i++) { %>
-                                <% if(products[i].category_id =="1") {%>
+                                <% if(locals.products && products[i].category_id =="1") {%>
 
                                     <article class="myclothesSlides fade">
-                                        <a href="/products/<%= products[i].id  %> ">
-                                        <img src="/images/products/indumentaria/<%= products[i].image  %> ">
-                                        <span class="clothes-detail"><%=products[i].name%></span>
-                                        <span class="clothes-price"><%=products[i].price%></span>
-
-                                        <button class="clothesbutton">Agregar al carrito</button>
+                                        <a href="/products/<%=locals.products[i].id %> ">
+                                                <img src="/images/products/1/<%=images[i].imagename%>">
+                                                    <span class="clothes-detail"><%=products[i].name%></span>
+                                                    <span class="clothes-price"><%=products[i].price%></span>
+                                                    <button class="clothesbutton">Agregar al carrito</button>
                                         </a>
                                     </article>
 
@@ -44,15 +43,10 @@
                                             <a class="next" onclick="clothesplusSlides(1)">&#10095;</a>
 
                         </div>
-
                     </div>
                     <div class="interludio">
-
                     </div>
                 </section>
-
-
-
             </main>
             <%- include('../partials/footer'); %>
                 <script src="../../js/menu.js"></script>

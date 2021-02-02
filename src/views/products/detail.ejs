@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('../partials/head', {title:product.name});%>
+<%- include('../partials/head', {});%>
 
     <body>
         <%- include('../partials/header');%>
@@ -9,8 +9,8 @@
                     <li><a href="/">Home</a></li>
                     <li>
 
-                        <a href="<%=product.category.name%> ">
-                            <%=product.category.name%>
+                        <a href="<%=images.product.category.name%> ">
+                            <%=images.product.category.name%>
                         </a>
                     </li>
                     <li>Detalle</li>
@@ -20,69 +20,65 @@
                     <div class="main-container-product">
                         <div class="rowimages">
                             <div class="column">
-                                <% if(product.image) {%>
-                                    <% if(product.image[1]) { %>
-                                        <img src="../images/products/<%=product.category%>/<%=product.image[1].filename%>">
-                                        <%  } %>
-                                            <% if(product.image[2]) { %>
-                                                <img src="../images/products/<%=product.category%>/<%=product.image[2].filename%>">
-                                                <%  } %>
-                            </div>
-                            <div class="column">
-                                <% if(product.image[3]) { %>
-                                    <img src="../images/products/<%=product.category%>/<%=product.image[3].filename%>">
+
+                                <% if(images.imagename) { %>
+                                    <img src="../images/products/<%=images.product.category.id%>/<%=images.imagename%>">
                                     <%  } %>
-                                        <% if(product.image[4]) { %>
-                                            <img src="../images/products/<%=product.category%>/<%=product.image[4].filename%>">
+                                        <% if(images.imageback) { %>
+                                            <img src="../images/products/<%=images.product.category.id%>/<%=images.imageback%>">
                                             <%  } %>
                             </div>
+                            <!-- <div class="column">
+                                <% if(images.imagename[3]) { %>
+                                    <img src="../images/products/<%=images.product.category.id%>/<%=images.imagename%>">
+                                    <%  } %>
+                                        <% if(images.imagename[4]) { %>
+                                            <img src="../images/products/<%=images.product.category.id%>/<%=images.imagename.filename%>">
+                                            <%  } %>
+                            </div>-->
 
                         </div>
-
-
-
-
 
                         <div class="main-product">
 
-                            <img src="../images/products/<%=product.category%>/<%=product.image[0].filename%>">
+                            <img src="../images/products/<%=images.product.category.id%>/<%=images.imagename%>">
 
                         </div>
-                        <% } %>
-                            <div class="details-products">
-                                <h3>
-                                    <%=product.name %>
-                                </h3>
-                                <span><%=toThousand(product.price) %></span>
-                                <br>
 
-                                <label for="description">Descripcion:</label>
-                                <p>
-                                    <%= product.description %>
-                                </p>
+                        <div class="details-products">
+                            <h3>
+                                <%=images.product.name %>
+                            </h3>
+                            <span><%=toThousand(images.product.price) %></span>
+                            <br>
 
-                                <%if(product.category == 'indumentaria'){ %>
-                                    <label for="cantidad">Tamaño:</label>
-                                    <select type="text" name="size" id="size">
+                            <label for="description">Descripcion:</label>
+                            <p>
+                                <%= images.product.description %>
+                            </p>
+
+                            <%if(images.product.category == 'indumentaria'){ %>
+                                <label for="cantidad">Tamaño:</label>
+                                <select type="text" name="size" id="size">
                                 <option value="xs">XS</option>
                                 <option value="s">S</option>
                                 <option value="m">M</option>
                                 <option value="l">L</option>
                                 <option value="xl">XL</option>
                                 </select>
-                                    <%      }  %>
+                                <%      }  %>
 
 
-                                        <button type="submit">Agregar al carrito</button>
-                            </div>
+                                    <button type="submit">Agregar al carrito</button>
+                        </div>
                     </div>
                 </form>
                 <% if(locals.user && user.category == 1){ %>
                     <!-- category 1 lo defini como si fuera el administrador.-->
 
                     <div class="detail-editanddelete">
-                        <a href="/products/<%=product.id%>/edit ">Editar</a>
-                        <form action="/products/<%=product && product.id%>?_method=DELETE" method="POST">
+                        <a href="/products/<%=images.product.id%>/edit ">Editar</a>
+                        <form action="/products/<%=images.product && images.product.id%>?_method=DELETE" method="POST">
                             <button type="submit">Eliminar</button>
                         </form>
                     </div>

@@ -10,13 +10,29 @@ const { product, category, image, size } = require('../../database/models');
 
 
 module.exports = {
-
     /*Detalle de cada Producto*/
     detail: (req, res) => {
 
-        product.findByPk(req.params.id, { include: 'category' })
-            .then(products => {
-                return res.render('products/detail', { category, product: products, toThousand });
+        image.findOne({
+                where: { id: req.params.id },
+                include: [{
+                    model: product,
+                    include: [{
+                        model: category,
+                    }]
+                }]
+            })
+            .then(resultado => {
+                product.findOne({
+                        where: { id: req.params.id },
+                        include: [{
+                            model: image,
+                            raw: true,
+                        }]
+                    })
+                    .then(resultado2 => {
+                        return res.render('products/detail', { products: resultado, images: resultado, category: resultado, toThousand })
+                    })
             })
             .catch(error => {
                 console.log(error);
@@ -53,8 +69,6 @@ module.exports = {
         //res.sendStatus(200);
         //console.log('bien');
         //res.end();
-
-
     },
 
     /*Creacion y guardado de nuevos Productos*/
@@ -66,19 +80,11 @@ module.exports = {
             .catch(error => {
                 return res.redirect('/');
             })
-
     },
 
     store: (req, res) => {
         let errors = validationResult(req);
         if (errors.isEmpty()) {
-            if (req.files.length != 0) {
-                console.log('Aca estoy');
-            } else {
-                console.log('no hay nada aca');
-            }
-
-            //delete req.body.oldImage;
             let prueba;
             if (req.files[1]) {
                 prueba = req.files[1].filename;
@@ -87,7 +93,6 @@ module.exports = {
             }
 
             image.create({
-
                     imagename: req.files[0].filename,
                     //imageback: req.files[1].filename,
                     imageback: prueba ? req.files[1].filename : null,
@@ -131,13 +136,27 @@ module.exports = {
         /*Carrito de Productos*/
         res.render('products/cart');
     },
-
     /*Listado de Productos Indumentaria*/
     indumentaria: (req, res) => {
 
-        product.findAll(req.params.id, { include: 'category' })
-            .then(products => {
-                return res.render('products/indumentaria', { products: products, category, toThousand });
+        image.findAll({
+                include: [{
+                    model: product,
+                    include: [{
+                        model: category,
+                    }]
+                }]
+            })
+            .then(resultado => {
+                product.findAll({
+                        include: [{
+                            model: image,
+                            raw: true,
+                        }]
+                    })
+                    .then(resultado2 => {
+                        return res.render('products/indumentaria', { products: resultado2, images: resultado, category: resultado })
+                    })
             })
             .catch(error => {
                 console.log(error);
@@ -147,24 +166,51 @@ module.exports = {
 
     /*Listado de Productos Accesorios*/
     accesorios: (req, res) => {
-
-        product.findAll(req.params.id, { include: 'category' })
-            .then(products => {
-                return res.render('products/accesorios', { products: products, category, toThousand });
+        image.findAll({
+                include: [{
+                    model: product,
+                    include: [{
+                        model: category,
+                    }]
+                }]
+            })
+            .then(resultado => {
+                product.findAll({
+                        include: [{
+                            model: image,
+                            raw: true,
+                        }]
+                    })
+                    .then(resultado2 => {
+                        return res.render('products/accesorios', { products: resultado2, images: resultado, category: resultado })
+                    })
             })
             .catch(error => {
                 console.log(error);
                 return res.redirect('/');
             })
-
     },
 
     /*Listado de Productos Bijouterie*/
     bijouterie: (req, res) => {
-
-        product.findAll(req.params.id, { include: 'category' })
-            .then(products => {
-                return res.render('products/bijouterie', { products: products, category, toThousand });
+        image.findAll({
+                include: [{
+                    model: product,
+                    include: [{
+                        model: category,
+                    }]
+                }]
+            })
+            .then(resultado => {
+                product.findAll({
+                        include: [{
+                            model: image,
+                            raw: true,
+                        }]
+                    })
+                    .then(resultado2 => {
+                        return res.render('products/bijouterie', { products: resultado2, images: resultado, category: resultado })
+                    })
             })
             .catch(error => {
                 console.log(error);
@@ -174,10 +220,24 @@ module.exports = {
 
     /*Listado de Productos Home*/
     home: (req, res) => {
-
-        product.findAll(req.params.id, { include: 'category' })
-            .then(products => {
-                return res.render('products/home', { products: products, category, toThousand });
+        image.findAll({
+                include: [{
+                    model: product,
+                    include: [{
+                        model: category,
+                    }]
+                }]
+            })
+            .then(resultado => {
+                product.findAll({
+                        include: [{
+                            model: image,
+                            raw: true,
+                        }]
+                    })
+                    .then(resultado2 => {
+                        return res.render('products/home', { products: resultado2, images: resultado, category: resultado })
+                    })
             })
             .catch(error => {
                 console.log(error);
@@ -186,29 +246,55 @@ module.exports = {
     },
 
     women: (req, res) => {
+        image.findAll({
+                include: [{
+                    model: product,
+                    include: [{
+                        model: category,
+                    }]
+                }]
+            })
+            .then(resultado => {
+                product.findAll({
+                        include: [{
+                            model: image,
+                            raw: true,
+                        }]
+                    })
+                    .then(resultado2 => {
+                        return res.render('products/women', { products: resultado2, images: resultado, category: resultado })
 
-        product.findAll(req.params.id, { include: 'category' })
-            .then(products => {
-                return res.render('products/women', { products: products, category, toThousand });
+                    })
             })
             .catch(error => {
                 console.log(error);
                 return res.redirect('/');
             })
-
     },
     men: (req, res) => {
-
-
-        product.findAll(req.params.id, { include: 'category' })
-            .then(products => {
-                return res.render('products/men', { products: products, category, toThousand });
+        image.findAll({
+                include: [{
+                    model: product,
+                    include: [{
+                        model: category,
+                    }]
+                }]
+            })
+            .then(resultado => {
+                product.findAll({
+                        include: [{
+                            model: image,
+                            raw: true,
+                        }]
+                    })
+                    .then(resultado2 => {
+                        return res.render('products/men', { products: resultado2, images: resultado, category: resultado })
+                    })
             })
             .catch(error => {
                 console.log(error);
                 return res.redirect('/');
             })
-
     },
 
     /*Edicion y actualización de Productos*/
@@ -228,6 +314,14 @@ module.exports = {
 
     update: (req, res) => {
 
+        let prueba2;
+        if (req.files[1]) {
+            prueba2 = req.files[1].filename;
+        } else {
+            prueba2 = null;
+        }
+
+
         let updateProduct = {
             name: req.body.name,
             price: req.body.price,
@@ -238,7 +332,7 @@ module.exports = {
         }
         let updateImage = {
             imagename: req.files[0].filename,
-            imageback: req.files[1].filename,
+            imageback: prueba2 ? req.files[1].filename : null,
         }
 
         image.update(updateImage, { where: { product_id: req.params.id } })
