@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
         static associate(models) {
             // define association here
             this.belongsTo(models.type);
-            this.belongsTo(models.order);
+            //this.belongsTo(models.order);
 
         }
     };

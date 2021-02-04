@@ -101,7 +101,7 @@ module.exports = {
                         name: req.body.name,
                         price: req.body.price,
                         category_id: req.body.category,
-                        //size: req.body.size,
+                        size: req.body.size,
                         gender: req.body.gender,
                         description: req.body.description
                     }]

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('../partials/head', {title:user.name});%>
+<%- include('../partials/head', {title:locals.user.first_name});%>
 
     <body>
         <%- include('../partials/header');%>
@@ -12,13 +12,13 @@
                             Nombre y Apellido:
                         </h3>
                         <p>
-                            <%= user.first_name %>
-                                <%= user.last_name %>
+                            <%= locals.user.first_name %>
+                                <%= locals.user.last_name %>
                         </p>
                         <br>
                         <h3>E-mail:</h3>
                         <p>
-                            <%= user.email %>
+                            <%= locals.user.email %>
 
                         </p>
 
@@ -27,7 +27,7 @@
 
                 </div>
                 <div class="detail-editanddelete">
-                    <a href="/users/<%=user.id%>/edit ">Editar</a>
+                    <a href="/users/<%=locals.user.id%>/edit ">Editar</a>
                     <form action="/users/<%=user && user.id%>?_method=DELETE" method="POST">
                         <button type="submit">Eliminar</button>
                     </form>

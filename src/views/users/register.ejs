@@ -13,11 +13,11 @@
                     <% locals.errors %>
 
                         <form action="/users" method="POST">
-                            <input type="text" name="name" id="nombre" placeholder="Nombre" value="<%=locals.user ? user.name: ' ' %> ">
+                            <input type="text" name="first_name" id="nombre" placeholder="Nombre" value="<%=locals.user ? user.name: ' ' %> ">
                             <p class="feedback<%=locals.errors && errors.name ? ' is-danger' : ' '  %>">
                                 <%=locals.errors && errors.name ? errors.name.msg: ' ' %>
                             </p>
-                            <input type="text" name="lastname" id="apellido" placeholder="Apellido" value="<%=locals.user ? user.lastname: ' ' %> ">
+                            <input type="text" name="last_name" id="apellido" placeholder="Apellido" value="<%=locals.user ? user.lastname: ' ' %> ">
                             <p class="feedback<%=locals.errors && errors.lastname ? ' is-danger' : ' '  %>">
                                 <%=locals.errors && errors.lastname ? errors.lastname.msg: ' ' %>
                             </p>
@@ -32,7 +32,7 @@
                                 <%=locals.errors && errors.password ? errors.password.msg: ' ' %>
                             </p>
 
-                            <input type="password" name="passwordconfirmation" id="passwordconfirmation" placeholder="Confirme su password">
+                            <input type="password" name="confirmation" id="passwordconfirmation" placeholder="Confirme su password">
                             <p class="feedback<%=locals.errors && errors.passwordconfirmation ? ' is-danger' : ' '  %>">
                                 <%=locals.errors && errors.passwordconfirmation ? errors.passwordconfirmation.msg: ' ' %>
                             </p>

@@ -5,6 +5,7 @@ const userModel = jsonTable('usersDataBase');
 const userTokensModels = jsonTable('usersTokens');
 
 const { validationResult } = require('express-validator');
+const { user, type, token } = require('../../database/models');
 
 
 module.exports = {
@@ -12,22 +13,31 @@ module.exports = {
         //res.sendFile(path.join(__dirname, '/../views/login.html'));
         res.render('users/login');
     },
-    authenticate: (req, res) => {
+    authenticate: async(req, res) => {
         let errors = validationResult(req);
         if (errors.isEmpty()) {
-            let user = userModel.findByField('email', req.body.email);
-            if (user) {
+            let usuario = await user.findOne({
+                where: { email: req.body.email }
 
-                let hash = bcrypt.hashSync(user.password, 8);
+            }, 'password')
 
-                if (bcrypt.compareSync(req.body.password, hash)) {
-                    delete user.password;
-                    req.session.user = user;
+            console.log(usuario.password);
+
+
+            if (usuario) {
+
+                let hash = await bcrypt.hashSync(usuario.password, 8);
+                let password = await req.body.password;
+
+                if (bcrypt.compareSync(password, hash)) {
+                    delete usuario.password;
+                    req.session.user = usuario;
                     if (req.body.remember) {
-                        const token = crypto.randomBytes(64).toString('base64');
-                        userTokensModels.create({ userId: user.id, token });
+                        const tokendata = await crypto.randomBytes(64).toString('base64');
+                        //userTokensModels.create({ userId: usuario.id, token });
+                        token.create({ usertoken: usuario.id, token: tokendata })
 
-                        res.cookie('userToken', token, { maxAge: 1000 * 60 * 60 * 24 * 30 * 3 });
+                        res.cookie('userToken', tokendata, { maxAge: 1000 * 60 * 60 * 24 * 30 * 3 });
                     }
 
                     return res.redirect('/');
@@ -51,6 +61,11 @@ module.exports = {
             }
 
 
+
+            //let user = userModel.findByField('email', req.body.email);
+
+
+
         } else {
 
             res.render('users/login', {
@@ -63,12 +78,21 @@ module.exports = {
 
 
     },
-    logout: (req, res) => {
-        let userTokens = userTokensModels.findByAllField('userId', req.session.user.id);
-        userTokens.forEach(userToken => {
-            userTokensModels.delete(userToken.id);
+    logout: async(req, res) => {
 
-        });
+        let usuario = await user.findOne({
+            where: { id: req.session.user.id }
+
+        })
+
+        // let userTokens = user.findOne('userId', req.session.user.id);
+        //let userTokens = userTokensModels.findByAllField('userId', req.session.user.id);
+        //let userTokens = user.findOne({where:})
+        //userTokens.forEach(userToken => {
+        token.destroy({ where: { usertoken: usuario.id } })
+            //token.destroy(userToken.id);
+
+        //  });
         res.clearCookie('userToken');
         req.session.destroy();
         res.redirect('/');
@@ -78,24 +102,55 @@ module.exports = {
         // res.sendFile(path.join(__dirname, '/../views/register.html'));
         res.render('./users/register');
     },
-    profile: (req, res) => {
+    profile: async(req, res) => {
 
-        let busqueda = userModel.find(req.params.id);
-        // console.log(busqueda);
-        // res.send(req.session.user);
-        if (req.session.user.id == busqueda.id) {
-            res.render('./users/profile', { user: busqueda });
-        } else {
-            res.redirect('/');
-        }
+        //let usuario = await user.findByPk(req.params.id)
+        let usuario = await user.findOne({ where: { id: req.params.id } })
+            //console.log(usuario)
+            .then(usuario => {
+                //  if (req.session.user == usuario.id) {
+                return res.render('users/profile', { user: usuario });
+
+                // }
+
+            })
+            .catch(error => {
+                console.log(error);
+            })
+
+        /* let busqueda = userModel.find(req.params.id);
+         // console.log(busqueda);
+         // res.send(req.session.user);
+         if (req.session.user.id == busqueda.id) {
+             res.render('./users/profile', { user: busqueda });
+         } else {
+             res.redirect('/');
+         }*/
 
 
     },
 
 
     storeUser: (req, res) => {
-
         let errors = validationResult(req);
+        if (errors.isEmpty()) {
+            let newUser = req.body;
+            user.create(newUser, { include: 'type' })
+                .then(user => {
+                    return res.redirect('users/login');
+
+                })
+
+        } else {
+            res.render('users/register', { errors: errors.mapped(), user: req.body })
+
+        }
+
+    },
+
+    ////////////////////
+
+    /*let errors = validationResult(req);
         if (errors.isEmpty()) {
             let miMax = userModel.lastID();
             let newUser = {
@@ -116,7 +171,7 @@ module.exports = {
 
         }
 
-    },
+    },*/
     destroy: (req, res) => {
         userModel.delete(req.params.id);
         res.redirect('/users/');
