@@ -8,20 +8,17 @@ const { product, category, image } = require('../../database/models');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
-
-
 const controller = {
     index: (req, res) => {
         image.findAll({
-            include: [{
-                model: product,
                 include: [{
-                    model: category,
+                    model: product,
+                    include: [{
+                        model: category,
+                    }]
                 }]
-            }]
-        })
-
-        .then(resultado => {
+            })
+            .then(resultado => {
                 product.findAll({
                         include: [{
                             model: image,

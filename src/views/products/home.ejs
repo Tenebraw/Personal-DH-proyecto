@@ -8,8 +8,8 @@
                 <ul class="breadcrumb">
                     <li><a href="/">Home</a></li>
                     <li>Hogar</li>
-
                 </ul>
+
                 <section>
                     <div class="product-home">
                         <div class="barr">
@@ -27,23 +27,19 @@
                                         <a href="/products/<%= products[i].id  %>">
                                 <img src="/images/products/4/<%= images[i].imagename  %> ">
                                 <span class="home-detail"><%= products[i].name %> </span>
-                                <span class="home-price"><%= products[i].price %> </span>
-                           
+                                <span class="home-price"><%= products[i].price %> </span>                         
                                 <button class="homebutton">Agregar al carrito</button>
                             </a>
                                     </article>
                                     <%  } %>
                                         <% } %>
-
                                             <a class="prev" onclick="homeplusSlides(-1)">&#10094;</a>
                                             <a class="next" onclick="homeplusSlides(1)">&#10095;</a>
                         </div>
 
                     </div>
                     <div class="interludio">
-
                     </div>
-
                 </section>
 
             </main>

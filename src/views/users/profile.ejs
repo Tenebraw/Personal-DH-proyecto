@@ -7,7 +7,6 @@
             <main>
                 <div class="main-container-product">
                     <div class="details-products">
-
                         <h3>
                             Nombre y Apellido:
                         </h3>
@@ -19,12 +18,14 @@
                         <h3>E-mail:</h3>
                         <p>
                             <%= locals.user.email %>
-
                         </p>
-
-
+                        <% if(locals.user.type_id == 1){%>
+                            <span>Administrador</span>
+                            <a href="/products/create" class="creationproducts">Crear productos</a>
+                            <%   }else{ %>
+                                <span>Usuario</span>
+                                <%    } %>
                     </div>
-
                 </div>
                 <div class="detail-editanddelete">
                     <a href="/users/<%=locals.user.id%>/edit ">Editar</a>
@@ -32,12 +33,10 @@
                         <button type="submit">Eliminar</button>
                     </form>
                 </div>
-
             </main>
             <%- include('../partials/footer'); %>
-                <script src="../js/menu.js"></script>
+                <script src="../../js/menu.js"></script>
                 <script src="../js/productDetail.js"></script>
-
     </body>
 
 </html>

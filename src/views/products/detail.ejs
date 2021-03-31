@@ -8,19 +8,16 @@
                 <ul class="breadcrumb">
                     <li><a href="/">Home</a></li>
                     <li>
-
                         <a href="<%=images.product.category.name%> ">
                             <%=images.product.category.name%>
                         </a>
                     </li>
                     <li>Detalle</li>
-
                 </ul>
                 <form action="./cart" method="POST">
                     <div class="main-container-product">
                         <div class="rowimages">
                             <div class="column">
-
                                 <% if(images.imagename) { %>
                                     <img src="../images/products/<%=images.product.category.id%>/<%=images.imagename%>">
                                     <%  } %>
@@ -36,13 +33,10 @@
                                             <img src="../images/products/<%=images.product.category.id%>/<%=images.imagename.filename%>">
                                             <%  } %>
                             </div>-->
-
                         </div>
 
                         <div class="main-product">
-
                             <img src="../images/products/<%=images.product.category.id%>/<%=images.imagename%>">
-
                         </div>
 
                         <div class="details-products">
@@ -51,7 +45,6 @@
                             </h3>
                             <span><%=toThousand(images.product.price) %></span>
                             <br>
-
                             <label for="description">Descripcion:</label>
                             <p>
                                 <%= images.product.description %>
@@ -67,13 +60,11 @@
                                 <option value="xl">XL</option>
                                 </select>
                                 <%      }  %>
-
-
                                     <button type="submit">Agregar al carrito</button>
                         </div>
                     </div>
                 </form>
-                <% if(locals.user && user.category == 1){ %>
+                <% if(locals.user && user.type_id == '1'){ %>
                     <!-- category 1 lo defini como si fuera el administrador.-->
 
                     <div class="detail-editanddelete">
@@ -86,9 +77,8 @@
 
             </main>
             <%- include('../partials/footer'); %>
-                <script src="../js/menu.js"></script>
+                <script src="../../js/menu.js"></script>
                 <script src="../js/productDetail.js"></script>
-
     </body>
 
 </html>

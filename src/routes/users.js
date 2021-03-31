@@ -20,15 +20,12 @@ const storage = multer.diskStorage({
 const validate = require('../validators/usersvalidators');
 const usersController = require('../controllers/usersControllers');
 
-
-
 //rutas
 router.get('/', usersController.users);
 
 router.get('/login', guestRoutes, usersController.login);
 router.post('/login', validate.loginForm, usersController.authenticate);
 router.post('/logout', usersController.logout); //Deberia ir por post
-
 
 router.get('/contacto', usersController.contacto);
 

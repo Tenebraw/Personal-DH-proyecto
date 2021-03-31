@@ -6,8 +6,7 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const jsonTable = require('../database/jsonTable');
 const productoModelo = jsonTable('productsDataBase');
 const { validationResult } = require('express-validator');
-const { product, category, image, size } = require('../../database/models');
-
+const { user, product, category, image, size } = require('../../database/models');
 
 module.exports = {
     /*Detalle de cada Producto*/
@@ -121,15 +120,14 @@ module.exports = {
                     return res.render('products/product-create-form', {
                         categories,
                         errors: errors.mapped(),
-                        product: req.body
+                        products: req.body
                     });
                 })
-                .catch(error => {
-                    console.log(error);
-                    return res.redirect('/')
-                })
+                /* .catch(error => {
+                     console.log(error);
+                     return res.redirect('/')
+                 })*/
         }
-
     },
 
     cart: (req, res) => {
@@ -138,7 +136,6 @@ module.exports = {
     },
     /*Listado de Productos Indumentaria*/
     indumentaria: (req, res) => {
-
         image.findAll({
                 include: [{
                     model: product,
@@ -300,11 +297,10 @@ module.exports = {
     /*Edicion y actualización de Productos*/
 
     edit: async(req, res) => {
-
         const categoria = await category.findAll();
         product.findByPk(req.params.id, { include: category })
             .then(product => {
-                return res.render('./products/product-edit-form', { product, categoria, toThousand });
+                return res.render('./products/product-edit-form', { product, category, categoria, image, toThousand });
             })
             .catch(error => {
                 console.log(error);
@@ -313,14 +309,12 @@ module.exports = {
     },
 
     update: (req, res) => {
-
         let prueba2;
         if (req.files[1]) {
             prueba2 = req.files[1].filename;
         } else {
             prueba2 = null;
         }
-
 
         let updateProduct = {
             name: req.body.name,
@@ -340,13 +334,10 @@ module.exports = {
             .then(updateProduct => {
                 return res.redirect('/products/' + req.params.id);
             })
-
-
     },
 
     /*Borrado de Productos*/
     destroy: async(req, res) => {
-
         // raw true me permite acceder a un datavalue en sequelize, importante para acceder al paramtero que necesito.
         //https://stackoverflow.com/questions/49552040/fail-to-get-the-specific-datavalue-from-the-return-sequelize-json-object
         let imagesdelete = await image.findOne({ raw: true, where: { product_id: req.params.id } });
@@ -367,8 +358,5 @@ module.exports = {
                 }
                 return res.redirect('/');
             })
-
-
     }
-
 };

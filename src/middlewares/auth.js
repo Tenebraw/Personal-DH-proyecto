@@ -17,19 +17,13 @@ module.exports = (req, res, next) => {
             //let user = userModel.find(userToken.userId);
             let usuario = user.findOne({ where: { id: userToken } })
 
-
             if (usuario) {
                 delete usuario.password;
                 //Se lo paso a la session y a la vista
                 req.session.user = usuario;
                 res.locals.user = usuario;
-
             }
-
         }
-
-
-
     }
     next();
 };

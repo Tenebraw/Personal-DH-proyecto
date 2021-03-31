@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 
-
 let model = function(tableName) {
     return {
         filePath: path.join(__dirname, '../data/' + tableName + '.json'),
@@ -11,7 +10,6 @@ let model = function(tableName) {
             if (fileContents) {
                 return JSON.parse(fileContents);
             }
-
             return [];
         },
         writeFile(contents) {
@@ -69,10 +67,7 @@ let model = function(tableName) {
             let actualizarCampo = campo.filter(element => element.id != id);
             this.writeFile(actualizarCampo);
         }
-
-
     }
-
 }
 
 module.exports = model;

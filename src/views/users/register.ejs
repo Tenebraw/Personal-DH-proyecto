@@ -11,18 +11,17 @@
                         <p>Por favor, complete sus datos</p>
                     </div>
                     <% locals.errors %>
-
-                        <form action="/users" method="POST">
-                            <input type="text" name="first_name" id="nombre" placeholder="Nombre" value="<%=locals.user ? user.name: ' ' %> ">
-                            <p class="feedback<%=locals.errors && errors.name ? ' is-danger' : ' '  %>">
-                                <%=locals.errors && errors.name ? errors.name.msg: ' ' %>
+                        <form action="/users" method="POST" id="formregister">
+                            <input type="text" name="first_name" id="nombre" placeholder="Nombre" value="<%=locals.user ? user.first_name: '' %>">
+                            <p class="feedback<%=locals.errors && errors.first_name ? ' is-danger' : ' '  %>">
+                                <%=locals.errors && errors.first_name ? errors.first_name.msg: ' ' %>
                             </p>
-                            <input type="text" name="last_name" id="apellido" placeholder="Apellido" value="<%=locals.user ? user.lastname: ' ' %> ">
-                            <p class="feedback<%=locals.errors && errors.lastname ? ' is-danger' : ' '  %>">
-                                <%=locals.errors && errors.lastname ? errors.lastname.msg: ' ' %>
+                            <input type="text" name="last_name" id="apellido" placeholder="Apellido" value="<%=locals.user ? user.last_name: '' %>">
+                            <p class="feedback<%=locals.errors && errors.last_name ? ' is-danger' : ' '  %>">
+                                <%=locals.errors && errors.last_name ? errors.last_name.msg: ' ' %>
                             </p>
 
-                            <input type="email" name="email" id="email" placeholder="Email" value="<%=locals.user ? user.email: ' ' %> ">
+                            <input type="email" name="email" id="email" placeholder="Email" value="<%=locals.user ? user.email: ' ' %>">
                             <p class="feedback<%=locals.errors && errors.email ? ' is-danger' : ' '  %>">
                                 <%=locals.errors && errors.email? errors.email.msg: ' ' %>
                             </p>
@@ -32,26 +31,19 @@
                                 <%=locals.errors && errors.password ? errors.password.msg: ' ' %>
                             </p>
 
-                            <input type="password" name="confirmation" id="passwordconfirmation" placeholder="Confirme su password">
+                            <input type="password" name="passwordconfirmation" id="passwordconfirmation" placeholder="Confirme su password">
                             <p class="feedback<%=locals.errors && errors.passwordconfirmation ? ' is-danger' : ' '  %>">
                                 <%=locals.errors && errors.passwordconfirmation ? errors.passwordconfirmation.msg: ' ' %>
                             </p>
-
-
                             <button type="submit">Enviar</button>
                             <button type="reset">Limpiar</button>
-
                         </form>
                 </div>
-
-
-
             </main>
-
             <%- include('../partials/footer'); %>
-
-                <script src="../js/menu.js"></script>
-                <script src="../js/register.js"></script>
+                <script src="../../js/menu.js"></script>
+                <script src="../../../js/validator.min.js"></script>
+                <script src="../../../js/register.js"></script>
     </body>
 
 </html>

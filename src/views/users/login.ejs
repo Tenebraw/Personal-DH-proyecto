@@ -4,8 +4,6 @@
 
     <body>
         <%- include('../partials/header');%>
-
-
             <main>
                 <div class="login-container">
                     <div class="login-titles">
@@ -13,18 +11,18 @@
                         <p>Por favor, ingrese su email y password</p>
                     </div>
 
-                    <form action="/users/login" method="POST">
+                    <form action="/users/login" method="POST" id="formlogin">
                         <div class="login-box">
                             <input type="text" name="email" id="email" placeholder="Email">
+                            <p class="is-danger"></p>
                             <% if(locals.errors && errors.email) { %>
                                 <p class="feedback is-danger">
                                     <%= errors.email.msg %>
                                 </p>
-
                                 <% } %>
                                     <div class="remember-box">
-
                                         <input type="password" name="password" id="password" placeholder="Password">
+                                        <p class="is-danger"></p>
                                         <% if(locals.errors && errors.password) { %>
                                             <p class="feedback is-danger">
                                                 <%= errors.password.msg %>
@@ -37,16 +35,15 @@
                                                 </div>
                                     </div>
                         </div>
-
                         <button type="submit">Login</button>
                         <p>No tiene una cuenta?<a href="/users/register">Registrese</a></p>
-
                     </form>
                 </div>
             </main>
             <%- include('../partials/footer'); %>
-                <script src="../js/menu.js"></script>
-                <script src="../js/login.js"></script>
+                <script src="../../js/menu.js"></script>
+                <script src="../../../js/validator.min.js"></script>
+                <script src="../../../js/login.js"></script>>
     </body>
 
 </html>

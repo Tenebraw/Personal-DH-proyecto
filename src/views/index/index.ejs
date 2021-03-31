@@ -17,9 +17,7 @@
         this[i] = temp;
     }
     return this;
-}                                 
-                    %>
-
+}  %>
                     <!--Slide Banner-->
 
                     <div class="slideshow-container">
@@ -170,27 +168,21 @@
                                 </div>
                             </div>
                             <div class="clothes-container">
-
-
-                                <%console.log(images[0].imagename)  %>
-                                    <%console.log(images[0].product.name)  %>
-
-                                        <% let randomclothes = images.shuffle()%>
-                                            <% for(let i = 0;i<randomclothes.length;i++) { %>
-                                                <% if(randomclothes[i].product.category_id =="1") {%>
-                                                    <a href="/products/<%= randomclothes[i].product.id  %> ">
-                                                        <article class="myclothesSlides fade">
-
-                                                            <img src="/images/products/1/<%=images[i].imagename%> ">
-                                                            <span class="clothes-detail"><%=randomclothes[i].product.name%></span>
-                                                            <span class="clothes-price"><%=randomclothes[i].product.price%></span>
-                                                            <button class="clothesbutton">Agregar al carrito</button>
-                                                        </article>
-                                                    </a>
-                                                    <%  } %>
-                                                        <% } %>
-                                                            <a class="prev" onclick="clothesplusSlides(-1)">&#10094;</a>
-                                                            <a class="next" onclick="clothesplusSlides(1)">&#10095;</a>
+                                <% let randomclothes = images.shuffle()%>
+                                    <% for(let i = 0;i<randomclothes.length;i++) { %>
+                                        <% if(randomclothes[i].product.category_id =="1") {%>
+                                            <a href="/products/<%= randomclothes[i].product.id  %> ">
+                                                <article class="myclothesSlides fade">
+                                                    <img src="/images/products/1/<%=images[i].imagename%> ">
+                                                    <span class="clothes-detail"><%=randomclothes[i].product.name%></span>
+                                                    <span class="clothes-price"><%=randomclothes[i].product.price%></span>
+                                                    <button class="clothesbutton">Agregar al carrito</button>
+                                                </article>
+                                            </a>
+                                            <%  } %>
+                                                <% } %>
+                                                    <a class="prev" onclick="clothesplusSlides(-1)">&#10094;</a>
+                                                    <a class="next" onclick="clothesplusSlides(1)">&#10095;</a>
                             </div>
                             <a class="seemore" href="/products/indumentaria">
                                 <p>Ver más</p>
@@ -323,11 +315,10 @@
                         <div class="interludio">
                         </div>
                     </section>
-
-
             </main>
             <%- include('../partials/footer'); %>
                 <script src="../../js/menu.js"></script>
+                <script src="../../js/menuindex.js"></script>
     </body>
 
 </html>

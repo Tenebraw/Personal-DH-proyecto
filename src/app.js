@@ -15,6 +15,9 @@ app.use(session({
     secret: 'Admin de grupos',
     resave: false, // no vuelve a guardar si no hay cambios
     saveUninitialized: true, // guarda sessiones aunque todavía no haya datos
+    //Probando esta linea para evitar el erro de connect.sid
+    // https://stackoverflow.com/questions/61999068/how-do-i-use-cookies-in-express-session-connect-sid-will-soon-be-rejected
+    cookie: { sameSite: 'strict' },
 }));
 app.use(cookieParser());
 app.use(auth);

@@ -17,16 +17,20 @@
                     </div>
                 </div>
                 <div class="product-creation">
-                    <form action="/products/<%=product && product.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+                    <form action="/products/<%=product && product.id%>?_method=PUT" method="POST" id="edicion-form" enctype="multipart/form-data">
                         <div class="row product-detail">
                             <div class="detail-create">
                                 <label for="name" class="form-label">Nombre del producto:</label>
                                 <input type="text" id="name" name="name" class="form-input" value="<%=product && product.name%> ">
                             </div>
+                            <div class="feedback-front">
+                            </div>
                             <hr>
                             <div class="detail-create">
                                 <label for="price" class="form-label">Precio del producto:</label>
                                 <input type="text" id="price" name="price" class="form-input" value="<%=toThousand(product && product.price) %> ">
+                            </div>
+                            <div class="feedback-front">
                             </div>
                             <hr>
                             <!-- <div class="detail-create">
@@ -37,8 +41,7 @@
                                 <label for="category" class="form-label">Categoría:</label>
                                 <select name="category" id="category" class="form-input">
                                     <% categoria.forEach(category => { %>
-                                        <option value="<%=category.id%>"><%=category.name%></option>
-                                        
+                                        <option value="<%=category.id%>"><%=category.name%></option>                                       
                                   <%  }); %> 
 						</select>
                             </div>
@@ -60,14 +63,15 @@
                                 <label for="description" class="form-label">Descripción:</label>
                                 <textarea name="description" id="description" class="form-input"><%=product && product.description %> </textarea>
                             </div>
+                            <div class="feedback-front">
+                            </div>
                             <hr>
                             <div class="detail-create">
-                                <img src="/images/products/<%=product.category%>/<%=product &&product.image %>" class="image-edit" alt="">
+                                <img src="/images/products/<%=product.category_id%>/<%=product && image.imagename %>" class="image-edit" alt="">
                             </div>
                             <div class="detail-create">
-                                <label for="imagename">Seleccionar una nueva imagen</label>
+                                <label for="imagename">Seleccionar una nueva imagen:</label>
                                 <input type="file" name="imagename" multiple>
-
                             </div>
                             <hr>
                             <div class="creation-submit">
@@ -77,12 +81,12 @@
                         </div>
                     </form>
                 </div>
-
             </div>
-            <!-- /todos los productos -->
-
             <!-- footer -->
             <%- include('../partials/footer') %>
+                <script src="../../js/menu.js"></script>
+                <script src="../../js/edicionproductos.js"></script>
+                <script src="../../js/validator.min.js"></script>
                 <!-- /footer -->
     </body>
 

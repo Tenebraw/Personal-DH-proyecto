@@ -7,15 +7,12 @@
             <a href="/">
                 <p>Occult Luxury</p>
             </a>
-
         </div>
         <div class="bars-rightmenu">
             <div class="searcher">
-
                 <!-- <a class="search-a" onclick="desplegarSearch()"><i class="fas fa-search"></i></a>-->
-
             </div>
-            <% if(locals.user) {%>
+            <% if(locals.user && user.id != null) {%>
                 <a href="/users/<%=user.id%>">
                     <%=user.first_name%>
                 </a>
@@ -27,8 +24,6 @@
                     <a href="/users/login"><i class="fas fa-user"></i></a>
 
                     <%  } %>
-
-
                         <a href="/products/cart"><i class="fas fa-shopping-cart"></i></a>
         </div>
     </nav>
@@ -37,52 +32,47 @@
             <a href="#" onclick="cerrarNav()">
                 <span>Volver</span>
                 <i class="fas fa-caret-left back"></i>
-
             </a>
         </div>
         <div class="slide-container">
-
             <div class="subnav">
                 <form action="/search" method="GET" class="search-input" enctype="multipart/form-data" id="search-input">
                     <Label>Buscar</Label>
                     <input type="text" id="search" name="keywords" placeholder="Buscar productos...">
                 </form>
             </div>
+
             <div class="subnav">
                 <a href="/products/indumentaria">Indumentaria
-               <span></span>
-             
+               <span></span>            
            </a>
             </div>
+
             <div class="subnav">
                 <a href="/products/accesorios">Accesorios
                 <span></span>
-          
             </a>
+            </div>
 
-            </div>
             <div class="subnav">
-                <a href="/products/bijouterie">Bijouterie
-       
+                <a href="/products/bijouterie">Bijouterie     
             </a>
             </div>
+
             <div class="subnav">
                 <a href="/products/home">Hogar
             </a>
             </div>
+
             <div class="subnav">
                 <a href="/users/contacto">Contacto </a>
             </div>
-
         </div>
-
-
     </nav>
+
     <div class="subnavtwo">
         <div class="searcher" id="search-full">
-
             <a href="#" class="search-a"><i class="fas fa-search"></i></a>
-
         </div>
         <form action="/search" method="GET" class="search-input2" enctype="multipart/form-data" id="search-input2">
             <input type="text" id="search" name="keywords" placeholder="Buscar productos...">
@@ -96,5 +86,4 @@
         <a href="/users/contacto">Contacto</a>
     </nav>
     <hr>
-
 </header>
