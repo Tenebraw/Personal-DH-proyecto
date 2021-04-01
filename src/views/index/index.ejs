@@ -102,8 +102,9 @@
                                                     </div>
                                                     <img src="/images/products/<%=randomdestacados[i].product.category_id%>/<%=randomdestacados[i].imagename %> ">
                                                     <span class="clothes-detail"><%=randomdestacados[i].product.name%></span>
-                                                    <span class="clothes-price"><%=randomdestacados[i].product.price%></span>
-                                                    <button class="clothesbutton">Agregar al carrito</button>
+                                                    <% let preciodestacado = randomdestacados[i].product.price  %>
+                                                        <span class="clothes-price"><%=`$${toThousand(preciodestacado)}`%></span>
+                                                        <button class="clothesbutton">Agregar al carrito</button>
                                                 </article>
                                             </a>
                                             <%  } %>
@@ -140,8 +141,9 @@
                                                     </div>
                                                     <img src="/images/products/<%=randomsale[i].product.category_id%>/<%=randomsale[i].imagename %> ">
                                                     <span class="clothes-detail"><%=randomsale[i].product.name%></span>
-                                                    <span class="clothes-price"><%=randomsale[i].product.price%></span>
-                                                    <button class="clothesbutton">Agregar al carrito</button>
+                                                    <% let preciorandom = randomsale[i].product.price  %>
+                                                        <span class="clothes-price"><%=`$${toThousand(preciorandom)}`%></span>
+                                                        <button class="clothesbutton">Agregar al carrito</button>
                                                 </article>
                                             </a>
                                             <%  } %>
@@ -175,8 +177,9 @@
                                                 <article class="myclothesSlides fade">
                                                     <img src="/images/products/1/<%=images[i].imagename%> ">
                                                     <span class="clothes-detail"><%=randomclothes[i].product.name%></span>
-                                                    <span class="clothes-price"><%=randomclothes[i].product.price%></span>
-                                                    <button class="clothesbutton">Agregar al carrito</button>
+                                                    <% let precioclothes = randomclothes[i].product.price  %>
+                                                        <span class="clothes-price"><%=`$${toThousand(precioclothes)}`%></span>
+                                                        <button class="clothesbutton">Agregar al carrito</button>
                                                 </article>
                                             </a>
                                             <%  } %>
@@ -212,8 +215,9 @@
                                                 <article class="myAccesorySlides fade">
                                                     <img src="../images/products/2/<%= randomaccesory[j].imagename %> ">
                                                     <span class="accesory-detail"><%= randomaccesory[j].product.name  %> </span>
-                                                    <span class="accesory-price"><%= randomaccesory[j].product.price%> </span>
-                                                    <button class="accesorybutton">Agregar al carrito</button>
+                                                    <% let precioaccesory = randomaccesory[j].product.price  %>
+                                                        <span class="accesory-price"><%=`$${toThousand(precioaccesory)}`%></span>
+                                                        <button class="accesorybutton">Agregar al carrito</button>
                                                 </article>
                                             </a>
                                             <%  } %>
@@ -262,8 +266,9 @@
                                                 <article class="myBijouxSlides fade">
                                                     <img src="../images/products/3/<%=randombijoux[k].imagename %> ">
                                                     <span class="bijoux-detail"><%= randombijoux[k].product.name %>  </span>
-                                                    <span class="bijoux-price"><%=randombijoux[k].product.price %></span>
-                                                    <button class="bijouxbutton">Agregar al carrito</button>
+                                                    <% let preciobijoux = randombijoux[k].product.price  %>
+                                                        <span class="bijoux-price"><%=`$${toThousand(preciobijoux)}`%></span>
+                                                        <button class="bijouxbutton">Agregar al carrito</button>
                                                 </article>
                                             </a>
                                             <% } %>
@@ -299,8 +304,9 @@
                                                 <article class="myHomeSlides fade">
                                                     <img src="../images/products/4/<%= randomhome[l].imagename %> ">
                                                     <span class="home-detail"><%=randomhome[l].product.name %> </span>
-                                                    <span class="home-price"><%=randomhome[l].product.price%> </span>
-                                                    <button class="homebutton">Agregar al carrito</button>
+                                                    <% let preciohome = randomhome[l].product.price  %>
+                                                        <span class="home-price"><%=`$${toThousand(preciohome)}`%></span>
+                                                        <button class="homebutton">Agregar al carrito</button>
                                                 </article>
                                             </a>
                                             <% } %>

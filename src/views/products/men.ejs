@@ -27,7 +27,8 @@
                                         <a href="/products/<%= products[i].id  %>">
                                 <img src="/images/products/1/<%=images[i].imagename  %> ">
                                 <span class="home-detail"><%= products[i].name %> </span>
-                                <span class="home-price"><%= products[i].price %> </span>                         
+                                <% let preciomen = products[i].price  %>
+                                <span class="home-price"><%=`$${toThousand(preciomen)}`%></span>                   
                                 <button class="homebutton">Agregar al carrito</button>
                             </a>
                                     </article>

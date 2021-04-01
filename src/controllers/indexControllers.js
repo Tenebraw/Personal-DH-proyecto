@@ -26,7 +26,7 @@ const controller = {
                         }]
                     })
                     .then(resultado2 => {
-                        return res.render('./index/index', { products: resultado, images: resultado, category: resultado })
+                        return res.render('./index/index', { products: resultado, images: resultado, category: resultado, toThousand })
 
                     })
             })

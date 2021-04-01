@@ -42,6 +42,10 @@ module.exports = {
         //let busqueda = productoModelo.find(req.params.id);
         // console.log(req.params.id);
         let newcart = req.body;
+        //Ver
+        //https://github.com/gabrieleromanato/Node.js-Shopping-Cart
+        //https://github.com/sourav-dey/shopping-cart-with-sequelize
+
         // let newProductcart = {
         //    name: busqueda.name,
         //    price: busqueda.price,
@@ -152,7 +156,7 @@ module.exports = {
                         }]
                     })
                     .then(resultado2 => {
-                        return res.render('products/indumentaria', { products: resultado2, images: resultado, category: resultado })
+                        return res.render('products/indumentaria', { products: resultado2, images: resultado, category: resultado, toThousand })
                     })
             })
             .catch(error => {
@@ -179,7 +183,7 @@ module.exports = {
                         }]
                     })
                     .then(resultado2 => {
-                        return res.render('products/accesorios', { products: resultado2, images: resultado, category: resultado })
+                        return res.render('products/accesorios', { products: resultado2, images: resultado, category: resultado, toThousand })
                     })
             })
             .catch(error => {
@@ -206,7 +210,7 @@ module.exports = {
                         }]
                     })
                     .then(resultado2 => {
-                        return res.render('products/bijouterie', { products: resultado2, images: resultado, category: resultado })
+                        return res.render('products/bijouterie', { products: resultado2, images: resultado, category: resultado, toThousand })
                     })
             })
             .catch(error => {
@@ -233,7 +237,7 @@ module.exports = {
                         }]
                     })
                     .then(resultado2 => {
-                        return res.render('products/home', { products: resultado2, images: resultado, category: resultado })
+                        return res.render('products/home', { products: resultado2, images: resultado, category: resultado, toThousand })
                     })
             })
             .catch(error => {
@@ -259,7 +263,7 @@ module.exports = {
                         }]
                     })
                     .then(resultado2 => {
-                        return res.render('products/women', { products: resultado2, images: resultado, category: resultado })
+                        return res.render('products/women', { products: resultado2, images: resultado, category: resultado, toThousand })
 
                     })
             })
@@ -285,7 +289,7 @@ module.exports = {
                         }]
                     })
                     .then(resultado2 => {
-                        return res.render('products/men', { products: resultado2, images: resultado, category: resultado })
+                        return res.render('products/men', { products: resultado2, images: resultado, category: resultado, toThousand })
                     })
             })
             .catch(error => {

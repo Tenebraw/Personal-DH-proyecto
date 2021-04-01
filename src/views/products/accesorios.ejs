@@ -26,8 +26,9 @@
                                     <article class="myAccesorySlides fade">
                                         <a href="/products/<%= products[i].id  %> ">
                                             <img src="/images/products/2/<%=images[i].imagename%>">
-                                            <span class="accesory-detail"><%= products[i].name %> </span>
-                                            <span class="accesory-price"><%= products[i].price %> </span>
+                                            <span class="accesory-detail"><%= products[i].name %> </span>                                            
+                                            <% let precioaccesory = products[i].price  %>
+                                            <span class="accesory-price"><%=`$${toThousand(precioaccesory)}`%></span>
                                             <button class="accesorybutton">Agregar al carrito</button>
                                         </a>
                                     </article>

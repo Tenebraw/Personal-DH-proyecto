@@ -29,7 +29,8 @@
                                         <a href="/products/<%=locals.products[i].id %> ">
                                                 <img src="/images/products/1/<%=images[i].imagename%>">
                                                     <span class="clothes-detail"><%=products[i].name%></span>
-                                                    <span class="clothes-price"><%=products[i].price%></span>
+                                                    <% let precioclothes = products[i].price  %>
+                                                    <span class="clothes-price"><%=`$${toThousand(precioclothes)}`%></span>
                                                     <button class="clothesbutton">Agregar al carrito</button>
                                         </a>
                                     </article>
